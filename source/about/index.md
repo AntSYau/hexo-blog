@@ -1,0 +1,12 @@
+---
+title: 关于我
+date: 2019-06-10 14:17:06
+---
+
+欢迎来到 qhurc/hblog ！
+
+我是一名17级 SUSTech/CSE 学生，成绩一般，水平有限。写这个 Hexo 博客纯粹是为了兴趣——顺带学习一下 Markdown 语法。我还有另外一个主页 [qhurc/blog](https://blog.qhurc.com) ，那个主页时间比较长一些了，这两个博客的内容最终会同步起来的（在不远的将来（逃
+
+行吧。如果需要联系我，可以给我[发邮件](mailto:qshi@qhurc.com)，（虽然我不一定回复（×
+
+EOF。
