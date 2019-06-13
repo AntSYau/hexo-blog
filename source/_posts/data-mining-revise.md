@@ -31,7 +31,51 @@ WHILE it is not time to stop DO
 END;
 ````
 
+#### 效率更高的算法实现方式
 
+1. 第一步，计算所有点对的距离，将其放到一个优先队列中
+2. 合并$C$和$D$时，删除队列中包含其中一个簇的所有元素。由于最多删除$2n$次，删除的时间开销为$O(n\log n)$。
+3. 计算新簇和所有剩余簇的所有距离。由于最多插入$n$次，计算过程的时间开销同样是$O(n\log n)$。
+
+由于最后两步最多执行n次，故总时间开销为$O(n^2\log n)$。
+
+#### 非欧空间下的层次聚类
+
+处于非欧空间时，我们必须要使用 Jaccard 距离等进行距离计算。
+
+有几种常用的选择中心点的算法，它们分别使得选出该点到簇中其他所有点之距离的如下数值最小：
+
+1. 求和
+1. 最大值
+1. 平方和
+
+## $k$-means 算法
+
+````
+Initially choose k points that are likely to be in different clusters;
+Make these points the centroids of their clusters;
+FOR each remaining point p DO
+    Find the centroid to which p is closest;
+    Add p to the cluster of that centroid;
+    Adjust the centroid of that cluster to account for p;
+END;
+````
+
+####簇初始化
+
+簇初始化有两种做法。
+1. 选择彼此距离尽可能远的点
+
+    ````
+    Pick the first point at random;
+    WHILE there are fewer than k points DO
+        Add the point whose minimum distance
+            from the selected points
+            is as large as possible;
+    END;
+    ````
+    
+1. 对某个样本数据先进行聚类，因此输出$k$个簇。在每个簇中选择一个点，例如离簇质心最近的那个点。
 
 #第12章 大规模机器学习
 
@@ -48,7 +92,7 @@ ML过程的目标是寻找一个函数$y=f(x)$来预测对于每个$x$的最佳$
 - $y$是布尔值，或$+1$和$-1$ **$\Rightarrow$ 二类分类(binary classification)** 
 - $y$是有穷集合中的元素 **$\Rightarrow$ 多类分类(multiclass classification)** 
 
-##### 主要的机器学习算法类别：
+#### 主要的机器学习算法类别：
 
 - 决策树(decision tree)，类似于搜索树
 - 感知机(preception)，对向量中各分量加权求和，若和大于给定阈值$\theta$则输出$+1$。适用于二类分类问题
