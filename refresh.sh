@@ -3,6 +3,9 @@ hexo clean
 echo generating...
 hexo g
 echo copying CNAME...
-cp CNAME doc/CNAME
+cp CNAME docs/CNAME
 echo pushing...
-hexo d
+git add -p
+date=Get-Date -Format "d MM/dd/yyyy HH:mm K"
+git commit -m "Updated"+date
+git push
