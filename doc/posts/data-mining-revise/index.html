@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="课本: Leskovec, J., Rajaraman, A., &amp;amp; Ullman, J. D. (2014). Mining of Massive Datasets (2nd ed.). Cambridge, England: Cambridge University Press.  修订：重写了LSH算法的部分（修正了错误）。增加了DGIM算法。 修订：更正了Winnow算法中的错误。">
+<meta name="keywords" content="data-mining">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据挖掘期末复习">
+<meta property="og:url" content="https://hblog.qhurc.com/posts/data-mining-revise/index.html">
+<meta property="og:site_name" content="qhurc&#x2F;hexo">
+<meta property="og:description" content="课本: Leskovec, J., Rajaraman, A., &amp;amp; Ullman, J. D. (2014). Mining of Massive Datasets (2nd ed.). Cambridge, England: Cambridge University Press.  修订：重写了LSH算法的部分（修正了错误）。增加了DGIM算法。 修订：更正了Winnow算法中的错误。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-14T01:58:53.852Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据挖掘期末复习">
+<meta name="twitter:description" content="课本: Leskovec, J., Rajaraman, A., &amp;amp; Ullman, J. D. (2014). Mining of Massive Datasets (2nd ed.). Cambridge, England: Cambridge University Press.  修订：重写了LSH算法的部分（修正了错误）。增加了DGIM算法。 修订：更正了Winnow算法中的错误。">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://hblog.qhurc.com/posts/data-mining-revise/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>数据挖掘期末复习 | qhurc/hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">qhurc/hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">rm -rf /hexo</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hblog.qhurc.com/posts/data-mining-revise/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qhurchill">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qhurc/hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据挖掘期末复习
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-10 19:37:10" itemprop="dateCreated datePublished" datetime="2019-06-10T19:37:10+08:00">2019-06-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-14 09:58:53" itemprop="dateModified" datetime="2019-06-14T09:58:53+08:00">2019-06-14</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ffuck/" itemprop="url" rel="index"><span itemprop="name">ffuck</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/posts/data-mining-revise/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/posts/data-mining-revise/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://www.mmds.org" target="_blank" rel="noopener">课本</a>: Leskovec, J., Rajaraman, A., &amp; Ullman, J. D. (2014). <em>Mining of Massive Datasets</em> (2nd ed.). Cambridge, England: Cambridge University Press.</p>
+<hr>
+<p>修订：重写了LSH算法的部分（修正了错误）。增加了DGIM算法。</p>
+<p>修订：更正了Winnow算法中的错误。</p>
+<p>修订：新增了BFR算法。</p>
+<hr>
+<p>由于前6章在小测中已有提及，故只针对部分算法做简单总结。</p>
+<h1 id="第3章-相似项发现"><a href="#第3章-相似项发现" class="headerlink" title="第3章 相似项发现"></a>第3章 相似项发现</h1><h2 id="Jaccard-相似度"><a href="#Jaccard-相似度" class="headerlink" title="Jaccard 相似度"></a>Jaccard 相似度</h2><p>集合的 Jaccard 相似度为 $\dfrac{|S\cap T|}{|S\cup T|}$ 。Jaccard相似度可记为$\text{SIM}(S,T)$。</p>
+<h2 id="文档的-Shingling"><a href="#文档的-Shingling" class="headerlink" title="文档的 Shingling"></a>文档的 Shingling</h2><p>一篇文章就是一个字符串。文档的<em>k</em>-shingle定义为其中任意长度为$k$的字串。于是，一篇文档可以表示成文档中出现一次或多次的<em>k</em>-shingle的集合。</p>
+<p>可以不将子字符串直接用成shingle，而是将字符串哈希到桶，用桶编号作为shingle。</p>
+<p>也可基于词取shingle。例如，每个无意义词（列表维护）后面3个词作为一个3-shingle。</p>
+<h2 id="LSH算法-Locality-Sensitive-Hashing"><a href="#LSH算法-Locality-Sensitive-Hashing" class="headerlink" title="LSH算法(Locality-Sensitive Hashing)"></a>LSH算法(Locality-Sensitive Hashing)</h2><p>局部敏感哈希的基本思想：在高维数据空间中的两个相邻的数据被映射到低维数据空间中后，将会有很大的概率任然相邻；而原本不相邻的两个数据，在低维空间中也将有很大的概率不相邻。通过这样一映射，我们可以在低维数据空间来寻找相邻的数据点，避免在高维数据空间中寻找，因为在高维空间中会很耗时。有这样性质的哈希映射称为是局部敏感的。</p>
+<p>LSH在此处的做法是，将所有的shingle运行局部敏感的哈希映射（假设映射到0或1），然后进行$n$次随机置换。统计每个置换的Signiture Matrix中第一个1的位置，从而得到一个长度为$n$的有序数对。对比两个目标的这一有序数对的汉明距离，其与$n$的比值即可估计相似度。即</p>
+<script type="math/tex; mode=display">P(\text{minHash}(A)=\text{minHash}(B))=\text{SIM}(A,B)</script><h1 id="第4章-数据流挖掘"><a href="#第4章-数据流挖掘" class="headerlink" title="第4章 数据流挖掘"></a>第4章 数据流挖掘</h1><h2 id="Bloom-过滤器"><a href="#Bloom-过滤器" class="headerlink" title="Bloom 过滤器"></a>Bloom 过滤器</h2><p>一个 Bloom 过滤器由以下几部分组成：</p>
+<ol>
+<li>$n$个位组成的桶，每个位的初始值都为0</li>
+<li>一系列哈希函数$h_1,h_2,\cdots,h_n$组成的集合，将键值映射到桶中的一个位上</li>
+<li>一系列键值组成的集合$S$</li>
+</ol>
+<p>Bloom 过滤器的目的是让所有键值在$S$中的元素通过，而阻挡大部分键值不在$S$中的元素。对$S$中每个元素运行哈希函数，将被映射到过的所有桶均设为1。当键值为$K$的元素到达时，计算$h_1(k),h_2(k),\cdots,h_n(k)$。只有当对应的位全为1时，允许其通过。</p>
+<h2 id="独立元素数目统计"><a href="#独立元素数目统计" class="headerlink" title="独立元素数目统计"></a>独立元素数目统计</h2><p>对于任意一个流元素$a$运行哈希函数$h$时，位串$h(a)$的的尾部将以一些0结束，也可能没有0。假设流中目前所有已有元素$a$的最大<strong>尾长(tail length)</strong>为$R$，则由<strong>FM算法(Flajolet-Martin Algorithm)</strong>，独立元素的数目大约为$2^R$个。</p>
+<h2 id="窗口内的计数问题"><a href="#窗口内的计数问题" class="headerlink" title="窗口内的计数问题"></a>窗口内的计数问题</h2><p>DGIM算法能够用$O(\log^2N)$位来表示大小为$N$的窗口。遵循以下规则：</p>
+<ul>
+<li>桶最右的位置上总为1</li>
+<li>每个1都在某个桶中</li>
+<li>一个位置只能属于一个桶</li>
+<li>桶的大小从最小一直变化到某个最大值，相同大小的桶不超过两个</li>
+<li>所有桶的大小是2的幂</li>
+<li>从右到左桶的大小不会减小</li>
+</ul>
+<p>桶最右的位置为桶的时间戳。维护桶时，如果当前位为0，无需动作。</p>
+<p>如果当前位为1，则</p>
+<ol>
+<li>创建一个size为1的bucket，设置其时间戳。</li>
+<li>如果已有三个size为1的bucket，则将其中最早的两个bucket合并为一个size为2的bucket，将这两个bucket中出现比较晚的的时间戳作为新bucket的时间戳。</li>
+<li>如果已有三个size为2的bucket，则将其中最早的两个bucket合并为一个size为4的bucket，如此更新下去。</li>
+<li>如果时间戳早于窗口，则将其删除。</li>
+</ol>
+<h1 id="第5章-链接分析的-PageRank-算法"><a href="#第5章-链接分析的-PageRank-算法" class="headerlink" title="第5章 链接分析的 PageRank 算法"></a>第5章 链接分析的 PageRank 算法</h1><p>Web可以想象成一个有向图，若网页$p_1$到$p_2$之间存在一条或者多条链接，则$p_1$到$p_2$有一条有向边。可以根据这样一张有向图定义一个Web<strong>转移矩阵(transition matrix)</strong>。</p>
+<p>从一个节点开始，随机冲浪者访问图中节点的过程是一个<strong>马尔可夫过程(Markov process)</strong>。因此PageRank的基本公式为</p>
+<script type="math/tex; mode=display">\vec{v'}=\vec M\cdot\vec v</script><p>为防止随机冲浪者陷入循环，我们假设随机冲浪者按照Web有向图的出链前进的概率略小于1（也就是“抽税”，允许冲浪者小概率随机跳转到全图任意一个网页）。我们设这一恒定的略小于1的概率为一个常数$\beta$。因此迭代的公式变成了</p>
+<script type="math/tex; mode=display">\vec{v'}=\beta\vec M\cdot\vec v+(1-\beta)\vec e/n</script><p>其中$n$是网页的总数。经过有限次迭代，便可算出每个Page的Rank。</p>
+<h1 id="第6章-频繁项集"><a href="#第6章-频繁项集" class="headerlink" title="第6章 频繁项集"></a>第6章 频繁项集</h1><h2 id="购物篮模型与-A-Priori"><a href="#购物篮模型与-A-Priori" class="headerlink" title="购物篮模型与 A-Priori"></a>购物篮模型与 A-Priori</h2><p><strong>购物篮模型(market-basket model)</strong> 是用于描述两类对象之间一种常见形式的多对多关系。每个购物篮(basket)是由多个项(item)组成的项集(itemset)。</p>
+<p>直观上看，一个在多个购物篮中出现的项集为“频繁”项集。</p>
+<ul>
+<li>$s:=$ 支持度阈值(support threshold)</li>
+<li>项集$I$的支持度(support) $:=$ 包含$I$为子集的购物篮数目</li>
+<li>$I$是频繁项集(frequent itemset) $:=I$ 的支持度不小于$s$。</li>
+</ul>
+<p>频繁项集的抽取结果往往采用if-then的形式来表示，这些形如$I\rightarrow j$的规则被称为<strong>关联规则(association rule)</strong>，如果$I$中所有项出现在某个购物篮的话，那么$j$“有可能”页出现在这一购物篮。</p>
+<p>关联规则$I\rightarrow j$的<strong>可信度(confidence)</strong>等于集合$I\cap\{j\}$的支持度与$I$的支持度的比值。因此我们可以使用A-Priori算法来检索频繁项对。</p>
+<ol>
+<li>建立两张表，第一张表将项的名称转化为$1$到$n$之间的整数。第二张表记录第$i$个项的出现次数。每次读取购物篮时，根据第一张表将第二张表相应角标的数组元素$+1$。</li>
+<li>第一遍扫描后，我们检查所有项的计数值，以确定哪些项构成单元素频繁项集。只给频繁项重新编号，编号范围时$1$到$m$。</li>
+<li>在第二遍扫描中，我们对两个频繁项组成的所有项对计数（由于项集是单调的，不可能遗落频繁项对）。<ul>
+<li>对每个购物篮，在频繁项集表中检查哪些是频繁的，</li>
+<li>然后通过循环生成所有频繁项对，对于每个频繁项对，在存储计数值的数据结构中在相应的计数值上$+1$。</li>
+<li>在第二遍扫描结束时，检查计数值结构以确定哪些项对为频繁项对。</li>
+</ul>
+</li>
+</ol>
+<p>项集具有<strong>单调性(monotonicity)</strong>，如果项集$I$是频繁的，那么其所有子集都是频繁的。</p>
+<h2 id="PCY算法"><a href="#PCY算法" class="headerlink" title="PCY算法"></a>PCY算法</h2><p>PCY算法是A-Priori的改进。</p>
+<p>在进行第一次扫描时，另外将所有1-项集组成的2-项集哈希到桶中。</p>
+<p>进行第二次扫描时，每个候选项集不但要满足是频繁项集的子集，还要满足这一2-项集在第一次扫描时被哈希到了一个频繁桶中（桶中元素的计数大于一给定阈值）。</p>
+<h2 id="SON算法"><a href="#SON算法" class="headerlink" title="SON算法"></a>SON算法</h2><p>SON算法应用两次Map-Reduce。</p>
+<p>第一个<code>Map</code>函数发现分配到的购物篮子集中的频繁项集。如果子集长度占输入文件比例为$p$，则这一步的支持度阈值从$s$降为$ps$。输出为一个$(F,1)$组合，其中$F$是一个频繁项集。</p>
+<p>第一个<code>Reduce</code>函数函数出现一次或多次的键。即，生成<code>候选项集</code>。</p>
+<p>第二个<code>Map</code>函数接收<code>候选项集</code>的所有输出和输入文件的一部分。每个<code>Map</code>计算候选项集在当前的购物篮数据集上的出现次数。输出$(C,v)$，其中$C$是一个候选集（不是频繁项集！），$v$是$C$在这一部分上的支持度。</p>
+<p>第二个<code>Reduce</code>函数将$C$看成键，对$v$求和。最后，输出全部支持度高于$s$的项集。</p>
+<h1 id="第7章-聚类"><a href="#第7章-聚类" class="headerlink" title="第7章 聚类"></a>第7章 聚类</h1><h2 id="两种聚类方法"><a href="#两种聚类方法" class="headerlink" title="两种聚类方法"></a>两种聚类方法</h2><p><strong>层次(hierarchical)</strong> 或 <strong>凝聚式(agglomerative)</strong> 算法。一开始将每个点都看成一个 <strong>簇(cluster)</strong> 。簇与簇按照 <strong>接近度(closeness)</strong> 来组合。当进一步的组合会导致非期望结果时，组合结束（例如，达到给定的簇的数目，或者簇内点分散的区域过大）。</p>
+<p><strong>点分配(point assignment)</strong> 过程。按照某个顺序依次考虑每个点，并将它分到最适合的簇中。</p>
+<h2 id="层次聚类"><a href="#层次聚类" class="headerlink" title="层次聚类"></a>层次聚类</h2><h4 id="欧氏空间下的层次聚类"><a href="#欧氏空间下的层次聚类" class="headerlink" title="欧氏空间下的层次聚类"></a>欧氏空间下的层次聚类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">WHILE it is not time to stop DO</span><br><span class="line">    pick the best two clusters to merge;</span><br><span class="line">    combine those two clusters into one cluster;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+<h3 id="效率更高的算法实现方式"><a href="#效率更高的算法实现方式" class="headerlink" title="效率更高的算法实现方式"></a>效率更高的算法实现方式</h3><ol>
+<li>第一步，计算所有点对的距离，将其放到一个优先队列中</li>
+<li>合并$C$和$D$时，删除队列中包含其中一个簇的所有元素。由于最多删除$2n$次，删除的时间开销为$O(n\log n)$。</li>
+<li>计算新簇和所有剩余簇的所有距离。由于最多插入$n$次，计算过程的时间开销同样是$O(n\log n)$。</li>
+</ol>
+<p>由于最后两步最多执行n次，故总时间开销为$O(n^2\log n)$。</p>
+<h3 id="非欧空间下的层次聚类"><a href="#非欧空间下的层次聚类" class="headerlink" title="非欧空间下的层次聚类"></a>非欧空间下的层次聚类</h3><p>处于非欧空间时，我们必须要使用 Jaccard 距离等进行距离计算。</p>
+<p>有几种常用的选择中心点的算法，它们分别使得选出该点到簇中其他所有点之距离的如下数值最小：</p>
+<ol>
+<li>求和</li>
+<li>最大值</li>
+<li>平方和</li>
+</ol>
+<h2 id="k-means-算法"><a href="#k-means-算法" class="headerlink" title="$k$-means 算法"></a>$k$-means 算法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Initially choose k points that are likely to be in different clusters;</span><br><span class="line">Make these points the centroids of their clusters;</span><br><span class="line">FOR each remaining point p DO</span><br><span class="line">    Find the centroid to which p is closest;</span><br><span class="line">    Add p to the cluster of that centroid;</span><br><span class="line">    Adjust the centroid of that cluster to account for p;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+<h3 id="簇初始化"><a href="#簇初始化" class="headerlink" title="簇初始化"></a>簇初始化</h3><p>簇初始化有两种做法。</p>
+<ol>
+<li>选择彼此距离尽可能远的点</li>
+<li>对某个样本数据先进行聚类，因此输出$k$个簇。在每个簇中选择一个点，例如离簇质心最近的那个点。</li>
+</ol>
+<p>对于第1种做法，最常见的实现方案是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Pick the first point at random;</span><br><span class="line">WHILE there are fewer than k points DO</span><br><span class="line">    Add the point whose minimum distance</span><br><span class="line">        from the selected points</span><br><span class="line">        is as large as possible;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+<h2 id="BFR算法"><a href="#BFR算法" class="headerlink" title="BFR算法"></a>BFR算法</h2><p>假设簇满足以质心为期望的正态分布。按上述方式选择初始的k个点。</p>
+<p>之后，数据文件中的点按照组块方式读入。</p>
+<p>目前内存中有：</p>
+<ol>
+<li>组块</li>
+<li>废弃集</li>
+<li>压缩集</li>
+<li>留存集</li>
+</ol>
+<p>下面开始数据处理。</p>
+<ol>
+<li>首先，充分接近某个簇质心的点会被加到该簇中。</li>
+<li>对于不充分接近簇质心的点，同留存集中的点一起聚类。</li>
+<li>压缩集迷你簇和新的迷你簇（迷你簇含有互相接近，但是不接近于任何簇的点）之间可以进行合并。</li>
+<li>不在留存集中的点，也就是一个簇或者迷你簇中的点，会和分配结果一起写到二级存储上。</li>
+</ol>
+<p>$d$维点的压缩集和废弃集中拥有$2d+1$个值，包含$N-SUM-SUMSQ$：</p>
+<ol>
+<li>$N:=$ 所表示的点数$N$</li>
+<li>$SUM:=$ 所有点在每一维度的分量之和</li>
+<li>$SUMSQ:=$ 所有点在每一维度的分量平方和</li>
+</ol>
+<h2 id="CURE算法"><a href="#CURE算法" class="headerlink" title="CURE算法"></a>CURE算法</h2><p>该算法假定在欧氏空间下，对簇的形状没有任何假设，不需要满足正态分布，可以拥有S型甚至环形。</p>
+<h3 id="CURE算法的初始化"><a href="#CURE算法的初始化" class="headerlink" title="CURE算法的初始化"></a>CURE算法的初始化</h3><ol>
+<li>抽取一部分数据进行聚类（建议使用层次聚类）</li>
+<li>从每一个簇选择一小部分点集作为<strong>簇的代表点</strong>。选择时使用簇初始化的第1种做法。</li>
+<li>对每个代表点移动一段距离，该距离是其位置到簇质心距离乘以一个固定比例，例如，20%。</li>
+</ol>
+<h3 id="CURE算法的完成"><a href="#CURE算法的完成" class="headerlink" title="CURE算法的完成"></a>CURE算法的完成</h3><p>下一步是，当两个簇的某对代表点之间足够接近，那么就将这两个簇进行合并。用户可以定义“接近的簇”。该合并过程可以重复。</p>
+<h1 id="第8章-Web广告"><a href="#第8章-Web广告" class="headerlink" title="第8章 Web广告"></a>第8章 Web广告</h1><h2 id="在线算法与贪心算法"><a href="#在线算法与贪心算法" class="headerlink" title="在线算法与贪心算法"></a>在线算法与贪心算法</h2><p>Web广告相关算法是在线(on-line)算法，在算法必须做出某些决定之前并不能获得全部的数据。</p>
+<p>很多在线算法都属于贪心算法(greedy algorithm)。Web广告的一个明显的贪心算法为，将查询分配给还有预算的出价更高的广告商。</p>
+<p>对于同一问题，在线算法不如最佳的离线算法效率那么好。如果存在一个小于1的常数$c$表示某一个具体的在线算法的结果至少是最优离线算法结果的$c$倍，就说其为在线算法的<strong>竞争率(competitive ratio)</strong>。</p>
+<h2 id="广告匹配问题"><a href="#广告匹配问题" class="headerlink" title="广告匹配问题"></a>广告匹配问题</h2><p>假定给定一个二部图。一个 <strong>匹配(matching)</strong> 指二部图的子边集，使得原二部图只保留这一子集包含的边时，每一个节点的度不超过1。</p>
+<p>如果某一个匹配中所有的节点都有边连接，那么这一匹配是 <strong>完美(perfect)</strong> 的。图中所有匹配中最大的那个匹配称为最大(maximal)匹配。</p>
+<h3 id="最大匹配贪心算法"><a href="#最大匹配贪心算法" class="headerlink" title="最大匹配贪心算法"></a>最大匹配贪心算法</h3><p>最大匹配贪心算法的工作流程如下。我们可以按照任意次序来考虑边。当考虑边$(x,y)$时，如果$x$和$y$都不是已有匹配中边的端点，则将其加入，否则跳过。这一算法的竞争率为$1/2$。</p>
+<h2 id="Adwords问题"><a href="#Adwords问题" class="headerlink" title="Adwords问题"></a>Adwords问题</h2><ul>
+<li>给定下列信息：<ol>
+<li>广告商的投标价格</li>
+<li>每个广告商-查询的点击率</li>
+<li>每个广告商的预算</li>
+<li>每个搜索查询所显示的广告数目上限</li>
+</ol>
+</li>
+<li>对每个搜索查询，算法给出一系列广告商的应答结果的集合，满足：<ol>
+<li>集合大小不超过广告数目上限</li>
+<li>每个广告商都对本条查询出了价</li>
+<li>每个广告商必须有足够预算来付费</li>
+</ol>
+</li>
+</ul>
+<p>依次广告选择的收益(revenue)是每个选出广告的价值之和，其中每条广告的价值(value)等于对应查询的出价和广告点击率的乘积。</p>
+<h3 id="Balance算法"><a href="#Balance算法" class="headerlink" title="Balance算法"></a>Balance算法</h3><p>Balance算法是Adwords问题的贪心算法的改进版本。当广告商出价只能是0和1时，它将查询分配给出价最高且剩余预算最多的广告商。如果多个广告商的剩余预算相等，那么可以随意地选择任意一个。</p>
+<p>当只有两个广告商时，Balance算法的竞争率为$3/4$。然而随着广告商数目的不断增长，竞争率会趋于$1-1/e$。</p>
+<h3 id="Balance-算法的一般化"><a href="#Balance-算法的一般化" class="headerlink" title="*Balance 算法的一般化"></a>*Balance 算法的一般化</h3><p>为了使Balance算法适用于更一般的情况，需要做如下修改：</p>
+<ul>
+<li>选择时，必须要倾向于出价高的广告</li>
+<li>对剩余预算的处理不能那么绝对。这是为了规避风险，使任意广告商的剩余预算不会太多。</li>
+</ul>
+<p>假设某个查询$q$到达，广告商$A_i$对$q$的出价为$x_i$（可以为0）。另外假定$A_i$预算中的结余比率占$f_i$。令$\Psi_i=x_i(1-e^{-f_i})$。那么将$q$分配给具有最大$\Psi_i$值的广告商$A_i$。</p>
+<h1 id="第12章-大规模机器学习"><a href="#第12章-大规模机器学习" class="headerlink" title="第12章 大规模机器学习"></a>第12章 大规模机器学习</h1><h2 id="机器学习模型"><a href="#机器学习模型" class="headerlink" title="机器学习模型"></a>机器学习模型</h2><p>应用机器学习算法的数据称为训练集。训练集由一系列$(x,y)$对组成，每个$(x,y)$称为一个<strong>训练样例(training example)</strong>，其中：</p>
+<ul>
+<li>$x$是一个<strong>特征向量(feature vector)</strong></li>
+<li>$y$是一个<strong>标签(label)</strong></li>
+</ul>
+<p>ML过程的目标是寻找一个函数$y=f(x)$来预测对于每个$x$的最佳$y$值。$y$的常见重要类型：</p>
+<ul>
+<li>$y$是实数</li>
+<li>$y$是布尔值，或$+1$和$-1$ <strong>$\Rightarrow$ 二类分类(binary classification)</strong> </li>
+<li>$y$是有穷集合中的元素 <strong>$\Rightarrow$ 多类分类(multiclass classification)</strong> </li>
+</ul>
+<h3 id="主要的机器学习算法类别："><a href="#主要的机器学习算法类别：" class="headerlink" title="主要的机器学习算法类别："></a>主要的机器学习算法类别：</h3><ul>
+<li>决策树(decision tree)，类似于搜索树</li>
+<li>感知机(preception)，对向量中各分量加权求和，若和大于给定阈值$\theta$则输出$+1$。适用于二类分类问题</li>
+<li>神经网络(neural net)，感知机组成的网络。</li>
+<li>基于实例的学习(instance-based learning)，使用整个训练集作为$f$。</li>
+</ul>
+<h2 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h2><p>为训练感知机，我们来考察一个训练集并试图寻找一个权重向量$\vec{w}$和阈值$\theta$。一开始假定阈值为0，在此基础上针对未知阈值应用以下算法，使其收敛到一个将训练集中所有正例和负例分开的超平面：</p>
+<ol>
+<li>将权重向量$\vec{w}$的所有元素初始化为0；</li>
+<li>选择一个很小的正实数$\eta$作为<strong>学习率参数(learning parameter)</strong>。$\eta$的选择会影响感知机的收敛。</li>
+<li>依次考虑每个训练样例$t=(\vec{x},y)$:<ul>
+<li>令$y’=\vec{w}\cdot\vec{x}$;</li>
+<li>如果$y$和$y’$的符号相同，则什么都不做，$t$已正确分类；</li>
+<li>如果$y$和$y’$的符号不同或$y’=0$，那么将$\vec{w}$替换成$\vec w+\eta y\vec x$。也就是说，沿$\vec x$方向微调$\vec w$。</li>
+</ul>
+</li>
+</ol>
+<h4 id="算法终止的常见方法："><a href="#算法终止的常见方法：" class="headerlink" title="*算法终止的常见方法："></a>*算法终止的常见方法：</h4><ol>
+<li>固定次数时终止</li>
+<li>分错类的数据点的数目不再变化时终止</li>
+<li>抽样，在样本上执行2</li>
+<li>降低训练率，例如在第$t$次迭代中将训练率$\eta$变为$\eta_0/(1+ct)$，其中c是很小的常数。</li>
+</ol>
+<h3 id="Winnow-算法"><a href="#Winnow-算法" class="headerlink" title="Winnow 算法"></a>Winnow 算法</h3><p>Winnow假定所有的特征向量都由0和1组成，类别用$+1$和$-1$表示。Winnow算法的权重向量都是正值。</p>
+<p>Winnow算法的基本思想是，只降低或增加分错类的数据点中与正确类之符号相同或相反的分量的权重。</p>
+<p>例如，以2和1/2作为因子分别代表提高权重和降低权重的情况：</p>
+<ol>
+<li>如果$\vec w \cdot \vec x &gt; \theta$且$y=+1$，或者$\vec w \cdot \vec x &lt; \theta$且$y=-1$，那么该样本被正确分类，此时对$\vec w$不做任何更改。</li>
+<li>如果$\vec w \cdot \vec x \leq \theta$但$y=+1$，那么$\vec x$中为1的分量所对应的$\vec w$的权重太低。此时，对这些权重进行加倍操作。也就是说，如果$x_i=1$，那么令$w_i:=2w_i$。</li>
+<li>如果$\vec w \cdot \vec x \geq \theta$但$y=-1$，那么$\vec x$中为1的分量所对应的$\vec w$的权重太高。此时，对这些权重进行减半操作。也就是说，如果$x_i=1$，那么令$w_i:=w_i/2$。</li>
+</ol>
+<h4 id="允许阈值变化的情况："><a href="#允许阈值变化的情况：" class="headerlink" title="允许阈值变化的情况："></a>允许阈值变化的情况：</h4><ul>
+<li>将权重向量$\vec w$定义为 <script type="math/tex">\vec w'=[w_1,w_2,\cdots,w_d,\theta]</script></li>
+<li>将特征向量$\vec x$ 定义为 <script type="math/tex">\vec x'=[x_1,x_2,\cdots,x_d,-1]</script></li>
+</ul>
+<p>对于新的训练样本和权重向量，可以认为阈值为0并运行基本的感知机算法。</p>
+<p>或者可以认为是 Winnow 算法。只不过在其它权重需要翻倍的时候，阈值对应的权重除以2；其他权重需要除以2的时候，阈值对应的权重要翻倍。</p>
+<h2 id="支持向量机"><a href="#支持向量机" class="headerlink" title="*支持向量机"></a>*支持向量机</h2><p><strong>支持向量机(Support-Vector Machine, SVM)</strong> 的目标是选择一个超平面$\vec w\cdot\vec x+b=0$，使得该超平面到训练集中任意点距离$\gamma$的最小值最大。</p>
+<p>换句话说，就是给定训练集$(\vec{x_1},y_1),(\vec{x_2},y_2),\cdots,(\vec{x_n},y_n)$，对于所有$i=1,2,\cdots,n$，在若狭约束条件下通过变化$\vec w$和$b$最小化$||\vec w||$: <script type="math/tex">y_i(\vec w \cdot \vec x+b)\geq1</script></p>
+<p>由于$\gamma=1/||\vec w||$，最小化$||\vec w||$就是最大化$\gamma$。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/data-mining/" rel="tag"># data-mining</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/stable-match/" rel="next" title="Stable Match 稳定婚姻问题">
+                <i class="fa fa-chevron-left"></i> Stable Match 稳定婚姻问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">qhurchill</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/AntSYau" title="GitHub &rarr; https://github.com/AntSYau" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:qshi@qhurc.com" title="E-Mail &rarr; mailto:qshi@qhurc.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.facebook.com/AntSYau" title="Facebook &rarr; https://www.facebook.com/AntSYau" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>Facebook</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://instagram.com/qhurchill" title="Instagram &rarr; https://instagram.com/qhurchill" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://t.me/qhurchill" title="Telegram &rarr; https://t.me/qhurchill" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qhurchill</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: false,
+    appId: 'CgA5fyPqgrIw64PRp6JKtff8-9Nh9j0Va',
+    appKey: 'Lq0iqngkiLv1bSu6Kw78vwFm',
+    placeholder: '支持文本及 M↓ 评论',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script>pangu.spacingPage();</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

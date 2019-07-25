@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="问题描述稳定婚姻问题是说，在n男n女之间，根据每个人对异性对象的喜好程度安排男女结婚，使得对于任意一位男士$M_1$（其配偶为$W_1$）和一位女士$W_2$（其配偶为$M_2$），以下两种情况不会同时发生：  $M_1$比起$W_1$更喜欢$W_2$ $W_2$比起$M_2$更喜欢$M_1$  也就是说，任意两对情侣间，一对中的男士和另一对中的女士不得互相更喜欢对方（否则他们就会私奔）。我们称这">
+<meta name="keywords" content="algorithms">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stable Match 稳定婚姻问题">
+<meta property="og:url" content="https://hblog.qhurc.com/posts/stable-match/index.html">
+<meta property="og:site_name" content="qhurc&#x2F;hexo">
+<meta property="og:description" content="问题描述稳定婚姻问题是说，在n男n女之间，根据每个人对异性对象的喜好程度安排男女结婚，使得对于任意一位男士$M_1$（其配偶为$W_1$）和一位女士$W_2$（其配偶为$M_2$），以下两种情况不会同时发生：  $M_1$比起$W_1$更喜欢$W_2$ $W_2$比起$M_2$更喜欢$M_1$  也就是说，任意两对情侣间，一对中的男士和另一对中的女士不得互相更喜欢对方（否则他们就会私奔）。我们称这">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-10T16:22:39.722Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stable Match 稳定婚姻问题">
+<meta name="twitter:description" content="问题描述稳定婚姻问题是说，在n男n女之间，根据每个人对异性对象的喜好程度安排男女结婚，使得对于任意一位男士$M_1$（其配偶为$W_1$）和一位女士$W_2$（其配偶为$M_2$），以下两种情况不会同时发生：  $M_1$比起$W_1$更喜欢$W_2$ $W_2$比起$M_2$更喜欢$M_1$  也就是说，任意两对情侣间，一对中的男士和另一对中的女士不得互相更喜欢对方（否则他们就会私奔）。我们称这">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://hblog.qhurc.com/posts/stable-match/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Stable Match 稳定婚姻问题 | qhurc/hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">qhurc/hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">rm -rf /hexo</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hblog.qhurc.com/posts/stable-match/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qhurchill">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qhurc/hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Stable Match 稳定婚姻问题
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-10 14:50:00" itemprop="dateCreated datePublished" datetime="2019-06-10T14:50:00+08:00">2019-06-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-11 00:22:39" itemprop="dateModified" datetime="2019-06-11T00:22:39+08:00">2019-06-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ffuck/" itemprop="url" rel="index"><span itemprop="name">ffuck</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/posts/stable-match/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/posts/stable-match/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>稳定婚姻问题是说，在n男n女之间，根据每个人对异性对象的喜好程度安排男女结婚，使得对于任意一位男士$M_1$（其配偶为$W_1$）和一位女士$W_2$（其配偶为$M_2$），<strong>以下两种情况不会同时发生：</strong></p>
+<ul>
+<li><strong>$M_1$比起$W_1$更喜欢$W_2$</strong></li>
+<li><strong>$W_2$比起$M_2$更喜欢$M_1$</strong></li>
+</ul>
+<p>也就是说，任意两对情侣间，一对中的男士和另一对中的女士不得互相更喜欢对方（否则他们就会私奔）。我们称这种情形为【<strong>不稳定情形</strong>】。</p>
+<p>1962年，美国数学家 David Gale 和 Lloyd Shapley 发明了一种寻找稳定婚姻的策略。不管男女各有多少人，也不管他们的偏好如何，应用这种策略后总能得到一个稳定的搭配。换句话说，他们证明了稳定的婚姻搭配总是存在的。</p>
+<p>按照 Gale-Shapley 算法，第一步是在猪蹄子堆里拎出来一个单身男人$m$（比如我）。之后，让这个男士按照他的喜好列表一个一个地跟女士求婚。对于每一个女士$w$，均存在三种情况：</p>
+<ol>
+<li>她没有npy，即没人跟她求过婚；</li>
+<li>她的npy是$m’$，但她喜欢$m$胜过$m’$；</li>
+<li>她的npy是$m’$，且她更喜欢$m’$。</li>
+</ol>
+<p>对于情况1，很明显我们应该让$(m,w)$成为一对新人。<br>对于情况2，我们要先无情地拆散$(m’,w)$，然后才能促成$(m,w)$。这时，$m’$失去了配偶，失落地回到猪蹄子堆里找个地方坐下了。<br>对于情况3，$m$只能愤恨地吐口唾沫，然后接着跟列表的其他女士求婚。</p>
+<p>对于男士来说，每次求婚的对象只能越来越糟，而女士的配偶却会越来越好。对于上述【<strong>不稳定情形</strong>】中提到的两对情侣，$M_1$一定曾经向$W_2$求过婚，而$W_2$拒绝了他。这说明$W_2$已经与比$M_1$更好的大猪蹄子成对了！这意味着【<strong>不稳定情形</strong>】不可能存在。</p>
+<p>可以证明，这样的过程是有穷尽的。由于告白次数随着算法运行是严格单增的，而这一指标的上界为（男士数$\times$女士数）。稳定婚姻问题需要满足男士数至少多于女士数（在一般的问题中，这两个数量是相等的），否则无法形成一一映射的关系。</p>
+<p>以上就是稳定婚姻问题的 Gale-Shapley 算法。</p>
+<h2 id="G-S-算法的伪代码实现1"><a href="#G-S-算法的伪代码实现1" class="headerlink" title="G-S 算法的伪代码实现1"></a>G-S 算法的伪代码实现<sup><a href="#fn_1" id="reffn_1">1</a></sup></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function stableMatching &#123;</span><br><span class="line">    Initialize all m ∈ M and w ∈ W to free</span><br><span class="line">    while ∃ free man m who still has a woman w to propose to &#123;</span><br><span class="line">        w = first woman on m’s list to whom m has not yet proposed</span><br><span class="line">        if w is free</span><br><span class="line">            (m, w) become engaged</span><br><span class="line">        else some pair (m&apos;, w) already exists</span><br><span class="line">            if w prefers m to m&apos;</span><br><span class="line">                m&apos; becomes free</span><br><span class="line">            (m, w) become engaged </span><br><span class="line">            else</span><br><span class="line">                (m&apos;, w) remain engaged</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="一道例题——寻找学助2"><a href="#一道例题——寻找学助2" class="headerlink" title="一道例题——寻找学助2"></a>一道例题——寻找学助<sup><a href="#fn_2" id="reffn_2">2</a></sup></h2><p>现在有$N$个学助和$N$个学生。每个学助都要一对一辅导一个学生。但是，每个学助都有一个最想帮助的学生排名表，每个学生也有一个最想找的学助排名表。</p>
+<p>现在，qhurc 想通过 Stable Matching 解决这个问题，他跑来向你寻求帮助。写一个程序来输出对应关系。</p>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p>第一行包含一个整数$N$，这是学生（和学助）的个数。<br>第二行包含$N$个字符串，以空格分隔。第$i$个字符串代表第$i$个学助的名字。<br>第三行包含$N$个字符串，以空格分隔。第$i$个字符串代表第$i$个学生的名字。<br>之后$N$行中，每一行包含$N$个字符串 $S_1,\ldots,S_N$ 。第$i$行表示第$i$个<strong>助教</strong>的<strong>学生</strong>喜好列表。这个助教相对于 $S_{i+1},\ldots,S_N$ 来说更喜欢<strong>学生</strong>$S_i$。<br>之后$N$行中，每一行包含$N$个字符串 $S_1,\ldots,S_N$ 。第$i$行表示第$i$个<strong>学生</strong>的<strong>助教</strong>喜好列表。这个学生相对于 $S_{i+1},\ldots,S_N$ 来说更喜欢<strong>助教</strong>$S_i$。<br>每个字符串的长度均小于$10$。</p>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p>输出$N$个字符串，以空格分隔。第$i$个字符串代表分配给第$i$个学助的<strong>学生的名字</strong>。</p>
+<h3 id="样例输入1"><a href="#样例输入1" class="headerlink" title="样例输入1"></a>样例输入1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">adam bale campbell</span><br><span class="line">alice bob calvin</span><br><span class="line">bob calvin alice</span><br><span class="line">calvin bob alice</span><br><span class="line">bob alice calvin</span><br><span class="line">adam bale campbell</span><br><span class="line">adam campbell bale</span><br><span class="line">bale adam campbell</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出1"><a href="#样例输出1" class="headerlink" title="样例输出1"></a>样例输出1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bob calvin alice</span><br></pre></td></tr></table></figure>
+<h3 id="样例输入2"><a href="#样例输入2" class="headerlink" title="样例输入2"></a>样例输入2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">adam bale campbell daisy eddy</span><br><span class="line">alice bob calvin david emily</span><br><span class="line">david calvin alice emily bob</span><br><span class="line">bob alice calvin david emily</span><br><span class="line">alice emily david calvin bob</span><br><span class="line">alice calvin david bob emily</span><br><span class="line">alice bob calvin david emily</span><br><span class="line">campbell bale adam daisy eddy</span><br><span class="line">eddy daisy bale adam campbell</span><br><span class="line">daisy bale adam campbell eddy</span><br><span class="line">campbell daisy adam eddy bale</span><br><span class="line">bale adam eddy campbell daisy</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出2"><a href="#样例输出2" class="headerlink" title="样例输出2"></a>样例输出2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">david emily alice calvin bob</span><br></pre></td></tr></table></figure>
+<h3 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h3><p>时间限制：$1s/$测试样例<br>内存限制：$256\text{MB}$<br>100% 的测试样例中，$N\leq1000$。</p>
+<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; saTag;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="built_in">string</span> tmp;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; tmp;</span><br><span class="line">        saTag.insert(pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt;(tmp, i));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; stuTag;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; stuName;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="built_in">string</span> tmp;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; tmp;</span><br><span class="line">        stuTag.insert(pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt;(tmp, i));</span><br><span class="line">        stuName.push_back(tmp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt;::iterator loc;</span><br><span class="line">    <span class="keyword">int</span> saFav[n][n];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="built_in">string</span> tmp;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; tmp;</span><br><span class="line">            saFav[i][j] = stuTag[tmp];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> stuFav[n][n];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="built_in">string</span> tmp;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; tmp;</span><br><span class="line">            stuFav[i][j] = saTag[tmp];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> inverse[n][n];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            inverse[i][stuFav[i][j]] = j;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> sa[n], stu[n];</span><br><span class="line">    <span class="built_in">memset</span>(sa, <span class="number">-1</span>, <span class="keyword">sizeof</span>(sa));</span><br><span class="line">    <span class="built_in">memset</span>(stu, <span class="number">-1</span>, <span class="keyword">sizeof</span>(stu));</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; <span class="built_in">free</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="built_in">free</span>.push(i);</span><br><span class="line">    <span class="keyword">int</span> count[n];</span><br><span class="line">    <span class="built_in">memset</span>(count, <span class="number">0</span>, <span class="keyword">sizeof</span>(count));</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">free</span>.empty()) &#123;</span><br><span class="line">        <span class="keyword">int</span> tmp = <span class="built_in">free</span>.front();</span><br><span class="line">        <span class="built_in">free</span>.pop();</span><br><span class="line">        <span class="keyword">for</span> (; count[tmp] &lt;= n; count[tmp]++) &#123;</span><br><span class="line">            <span class="keyword">int</span> targetStu = saFav[tmp][count[tmp]];</span><br><span class="line">            <span class="keyword">if</span> (sa[targetStu] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                stu[tmp] = targetStu;</span><br><span class="line">                sa[targetStu] = tmp;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (inverse[targetStu][sa[targetStu]]</span><br><span class="line">                       &gt; inverse[targetStu][tmp]) &#123;</span><br><span class="line">                <span class="built_in">free</span>.push(sa[targetStu]);</span><br><span class="line">                stu[tmp] = targetStu;</span><br><span class="line">                sa[targetStu] = tmp;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s%s"</span>, stuName[stu[i]].c_str(), i == n - <span class="number">1</span> ? <span class="string">""</span> : <span class="string">" "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote id="fn_1">
+<sup>1</sup>. 来自<a href="https://en.wikipedia.org/wiki/Stable_marriage_problem" target="_blank" rel="noopener">维基百科</a>。<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. 题目来自 SUSTech ADOJ。<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/algorithms/" rel="tag"># algorithms</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/data-mining-revise/" rel="prev" title="数据挖掘期末复习">
+                数据挖掘期末复习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">qhurchill</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/AntSYau" title="GitHub &rarr; https://github.com/AntSYau" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:qshi@qhurc.com" title="E-Mail &rarr; mailto:qshi@qhurc.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.facebook.com/AntSYau" title="Facebook &rarr; https://www.facebook.com/AntSYau" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>Facebook</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://instagram.com/qhurchill" title="Instagram &rarr; https://instagram.com/qhurchill" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://t.me/qhurchill" title="Telegram &rarr; https://t.me/qhurchill" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qhurchill</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: false,
+    appId: 'CgA5fyPqgrIw64PRp6JKtff8-9Nh9j0Va',
+    appKey: 'Lq0iqngkiLv1bSu6Kw78vwFm',
+    placeholder: '支持文本及 M↓ 评论',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script>pangu.spacingPage();</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
