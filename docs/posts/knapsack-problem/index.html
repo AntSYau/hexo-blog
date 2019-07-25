@@ -13,7 +13,7 @@
 
 
 <html class="theme-next mist" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -97,13 +97,18 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="qhurc&#x2F;hexo">
-<meta property="og:url" content="https://hblog.qhurc.com/archives/index.html">
+  <meta name="description" content="01背包问题问题有$N$件物品和一个容量为$V$的背包，放入第$i$件物品耗费的费用是$C_i$，得到的价值是$W_i$。求解将哪些物品装入背包可使价值总和最大。">
+<meta name="keywords" content="knapsack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="背包问题学习笔记">
+<meta property="og:url" content="https://hblog.qhurc.com/posts/knapsack-problem/index.html">
 <meta property="og:site_name" content="qhurc&#x2F;hexo">
+<meta property="og:description" content="01背包问题问题有$N$件物品和一个容量为$V$的背包，放入第$i$件物品耗费的费用是$C_i$，得到的价值是$W_i$。求解将哪些物品装入背包可使价值总和最大。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-15T14:29:17.980Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qhurc&#x2F;hexo">
+<meta name="twitter:title" content="背包问题学习笔记">
+<meta name="twitter:description" content="01背包问题问题有$N$件物品和一个容量为$V$的背包，放入第$i$件物品耗费的费用是$C_i$，得到的价值是$W_i$。求解将哪些物品装入背包可使价值总和最大。">
 
 
 
@@ -111,7 +116,7 @@
 
   
   
-  <link rel="canonical" href="https://hblog.qhurc.com/archives/">
+  <link rel="canonical" href="https://hblog.qhurc.com/posts/knapsack-problem/">
 
 
 
@@ -121,7 +126,7 @@
   };
 </script>
 
-  <title>归档 | qhurc/hexo</title>
+  <title>背包问题学习笔记 | qhurc/hexo</title>
   
 
 
@@ -169,7 +174,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-archive">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -279,7 +284,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -300,28 +305,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -347,113 +330,212 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 2 篇日志。 继续努力。
-      </span>
-      
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hblog.qhurc.com/posts/knapsack-problem/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qhurchill">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qhurc/hexo">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/posts/data-mining-revise/" itemprop="url">
-            
-              <span itemprop="name">数据挖掘期末复习</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">背包问题学习笔记
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-10T19:37:10+08:00" content="2019-06-10">
-          06-10
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-15 22:21:32 / 修改时间：22:29:17" itemprop="dateCreated datePublished" datetime="2019-06-15T22:21:32+08:00">2019-06-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ffuck/" itemprop="url" rel="index"><span itemprop="name">ffuck</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/posts/knapsack-problem/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/posts/knapsack-problem/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/posts/stable-match/" itemprop="url">
-            
-              <span itemprop="name">Stable Match 稳定婚姻问题</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-10T14:50:00+08:00" content="2019-06-10">
-          06-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <h1 id="01背包问题"><a href="#01背包问题" class="headerlink" title="01背包问题"></a>01背包问题</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>有$N$件物品和一个容量为$V$的背包，放入第$i$件物品耗费的费用是$C_i$，得到的价值是$W_i$。求解将哪些物品装入背包可使价值总和最大。</p>
+
+      
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/knapsack/" rel="tag"># knapsack</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/data-mining-revise/" rel="next" title="数据挖掘期末复习">
+                <i class="fa fa-chevron-left"></i> 数据挖掘期末复习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -489,7 +571,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -529,7 +611,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -652,7 +736,7 @@
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
 
 
 
@@ -754,6 +838,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
 
   
 
@@ -799,6 +887,8 @@
 
 
 
+
+  
 
 
   
