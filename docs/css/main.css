@@ -154,7 +154,7 @@ template {
 body {
   position: relative;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 2;
   color: #555;
   background: #fff;
@@ -166,7 +166,7 @@ body {
 }
 @media (min-width: 1200px) {
   body {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 h1,
@@ -181,89 +181,45 @@ h6 {
   line-height: 1.5;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
-h1 {
-  font-size: 24px;
+h1.post-title,
+h2.post-title {
+  font-size: 1.75em;
 }
-h1 code {
-  font-size: 1em;
+.posts-expand div.post-body h1 {
+  font-size: 1.625em;
 }
-@media (max-width: 767px) {
-  h1 {
-    font-size: 20px;
-  }
-  h1 code {
-    font-size: 1em;
-  }
+.posts-expand div.post-body h1 code {
+  font-size: inherit;
 }
-h2 {
-  font-size: 22px;
+.posts-expand div.post-body h2 {
+  font-size: 1.5em;
 }
-h2 code {
-  font-size: 1em;
+.posts-expand div.post-body h2 code {
+  font-size: inherit;
 }
-@media (max-width: 767px) {
-  h2 {
-    font-size: 18px;
-  }
-  h2 code {
-    font-size: 1em;
-  }
+.posts-expand div.post-body h3 {
+  font-size: 1.375em;
 }
-h3 {
-  font-size: 20px;
+.posts-expand div.post-body h3 code {
+  font-size: inherit;
 }
-h3 code {
-  font-size: 1em;
+.posts-expand div.post-body h4 {
+  font-size: 1.25em;
 }
-@media (max-width: 767px) {
-  h3 {
-    font-size: 16px;
-  }
-  h3 code {
-    font-size: 1em;
-  }
+.posts-expand div.post-body h4 code {
+  font-size: inherit;
 }
-h4 {
-  font-size: 18px;
+.posts-expand div.post-body h5 {
+  font-size: 1.125em;
 }
-h4 code {
-  font-size: 1em;
+.posts-expand div.post-body h5 code {
+  font-size: inherit;
 }
-@media (max-width: 767px) {
-  h4 {
-    font-size: 14px;
-  }
-  h4 code {
-    font-size: 1em;
-  }
+.posts-expand div.post-body h6 {
+  font-size: 1.0625em;
 }
-h5 {
-  font-size: 16px;
-}
-h5 code {
-  font-size: 1em;
-}
-@media (max-width: 767px) {
-  h5 {
-    font-size: 12px;
-  }
-  h5 code {
-    font-size: 1em;
-  }
-}
-h6 {
-  font-size: 14px;
-}
-h6 code {
-  font-size: 1em;
-}
-@media (max-width: 767px) {
-  h6 {
-    font-size: 10px;
-  }
-  h6 code {
-    font-size: 1em;
-  }
+.posts-expand div.post-body h6 code {
+  font-size: inherit;
 }
 p {
   margin: 0 0 20px 0;
@@ -385,7 +341,7 @@ kbd {
 }
 .translation {
   margin-top: -20px;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #999;
 }
 .scrollbar-measure {
@@ -410,7 +366,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 table > tbody > tr:nth-of-type(odd) {
   background-color: #f9f9f9;
@@ -497,7 +453,7 @@ pre,
   overflow: auto;
   margin: 20px 0;
   padding: 0;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #4d4d4c;
   background: #f7f7f7;
   line-height: 1.6;
@@ -513,7 +469,7 @@ code {
   color: #555;
   background: #eee;
   border-radius: 3px;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 pre {
   padding: 10px;
@@ -945,7 +901,7 @@ pre .javascript .function {
 .btn {
   display: inline-block;
   padding: 0 20px;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #555;
   background: transparent;
   border: 2px solid #222;
@@ -1052,9 +1008,6 @@ pre .javascript .function {
     border-bottom-color: #222;
   }
 }
-.comments {
-  margin: 60px 20px 0;
-}
 .back-to-top {
   box-sizing: border-box;
   position: fixed;
@@ -1109,6 +1062,7 @@ pre .javascript .function {
   color: #222;
   background: #222;
   border-bottom: none;
+  line-height: 1.375rem;
 }
 .brand:hover {
   color: #222;
@@ -1122,14 +1076,14 @@ pre .javascript .function {
 .site-title {
   display: inline-block;
   vertical-align: top;
-  line-height: 36px;
-  font-size: 20px;
+  line-height: 1.5;
+  font-size: 1.375rem;
   font-weight: normal;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 .site-subtitle {
   margin-top: 10px;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #999;
 }
 .use-motion .brand {
@@ -1197,7 +1151,7 @@ pre .javascript .function {
 .menu .menu-item a,
 .menu .menu-item span.exturl {
   display: block;
-  font-size: 13px;
+  font-size: 0.8125rem;
   line-height: inherit;
   border-bottom: 1px solid transparent;
   transition-property: border-color;
@@ -1221,7 +1175,7 @@ pre .javascript .function {
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 .post-body span.exturl .fa {
-  font-size: 14px;
+  font-size: 0.875rem;
   margin-left: 4px;
 }
 .post-body .fancybox img {
@@ -1234,15 +1188,19 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: -20px auto 15px;
   text-align: center;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #999;
   font-weight: bold;
   line-height: 1;
 }
 .post-sticky-flag {
   display: inline-block;
-  font-size: 16px;
+  font-size: 1rem;
   transform: rotate(30deg);
+}
+.comments {
+  margin: 60px 20px 0;
+  overflow: hidden;
 }
 .use-motion .post-block,
 .use-motion .pagination,
@@ -1364,6 +1322,7 @@ pre .javascript .function {
 .posts-collapse .collection-title h1,
 .posts-collapse .collection-title h2 {
   margin-left: 20px;
+  font-size: 1.375em;
 }
 .posts-collapse .collection-title small {
   color: #bbb;
@@ -1396,7 +1355,7 @@ pre .javascript .function {
   content: " ";
   position: absolute;
   left: 0;
-  top: 12px;
+  top: 0.75rem;
   width: 6px;
   height: 6px;
   margin-left: -4px;
@@ -1416,7 +1375,7 @@ pre .javascript .function {
 }
 .posts-collapse .post-meta {
   position: absolute;
-  font-size: 12px;
+  font-size: 0.75rem;
   left: 20px;
   top: 5px;
 }
@@ -1424,8 +1383,8 @@ pre .javascript .function {
   display: none;
 }
 .posts-collapse .post-title {
-  margin-left: 60px;
-  font-size: 16px;
+  margin-left: 3.75rem;
+  font-size: 1rem;
   font-weight: normal;
   line-height: inherit;
 }
@@ -1477,14 +1436,14 @@ pre .javascript .function {
   transform: scaleX(1);
 }
 .posts-expand .post-title-link .fa {
-  font-size: 20px;
+  font-size: 1.25rem;
   margin-left: 5px;
 }
 .posts-expand .post-meta {
   margin: 3px 0 60px 0;
   color: #999;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 12px;
+  font-size: 0.75rem;
   text-align: center;
 }
 .posts-expand .post-meta .post-category-list {
@@ -1496,7 +1455,7 @@ pre .javascript .function {
   color: #999;
 }
 .posts-expand .post-meta .post-description {
-  font-size: 14px;
+  font-size: 0.875rem;
   margin-top: 2px;
 }
 .posts-expand .post-meta time {
@@ -1539,7 +1498,7 @@ pre .javascript .function {
 .posts-expand .post-tags a {
   display: inline-block;
   margin-right: 10px;
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 .post-nav {
   display: table;
@@ -1560,8 +1519,8 @@ pre .javascript .function {
 .post-nav-item a {
   position: relative;
   display: block;
-  line-height: 25px;
-  font-size: 14px;
+  line-height: 1.6;
+  font-size: 0.875rem;
   color: #555;
   border-bottom: none;
 }
@@ -1573,7 +1532,7 @@ pre .javascript .function {
   top: 2px;
 }
 .post-nav-item .fa {
-  font-size: 12px;
+  font-size: 0.75rem;
   margin-right: 5px;
 }
 .post-nav-next a {
@@ -1740,7 +1699,7 @@ pre .javascript .function {
 .site-description {
   margin-top: 5px;
   text-align: center;
-  font-size: 14px;
+  font-size: 1em;
   color: #999;
 }
 .links-of-author {
@@ -1753,7 +1712,7 @@ pre .javascript .function {
   margin-right: 10px;
   margin-bottom: 10px;
   border-bottom-color: #555;
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 .links-of-author a:before,
 .links-of-author span.exturl:before {
@@ -1764,7 +1723,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a1ffd0;
+  background: #06edb5;
 }
 .feed-link,
 .chat {
@@ -1781,7 +1740,6 @@ pre .javascript .function {
 .feed-link a i,
 .chat a i {
   color: #fc6423;
-  font-size: 14px;
 }
 .feed-link a:hover,
 .chat a:hover {
@@ -1794,11 +1752,11 @@ pre .javascript .function {
 }
 .links-of-blogroll {
   margin-top: 10px;
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 .links-of-blogroll-title {
   margin-top: 0;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
 }
 .links-of-blogroll-list {
@@ -1826,7 +1784,7 @@ pre .javascript .function {
   display: inline-block;
   cursor: pointer;
   border-bottom: 1px solid transparent;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #555;
 }
 .sidebar-nav li:hover {
@@ -1875,14 +1833,14 @@ pre .javascript .function {
   text-align: center;
   color: inherit;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.25rem;
 }
 .site-state-item-name {
-  font-size: 13px;
+  font-size: 0.875rem;
   color: inherit;
 }
 .footer {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #999;
 }
 .footer img {
@@ -2089,7 +2047,7 @@ pre .javascript .function {
   border-radius: 50%;
 }
 .page-archive .fa-external-link {
-  font-size: 15px;
+  font-size: 0.875rem;
   margin-left: 5px;
 }
 .category-all-page .category-all-title {
@@ -2265,18 +2223,12 @@ pre .javascript .function {
     transform: scale(1);
   }
 }
-.page-post-detail .sidebar-toggle-line {
-  background: #87daff;
-}
-.page-post-detail .comments {
-  overflow: hidden;
-}
 ul.breadcrumb {
   list-style: none;
   margin: 1em 0;
   padding: 0 2em;
   text-align: center;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 ul.breadcrumb li {
   display: inline;
@@ -2436,13 +2388,7 @@ hr {
   display: none;
 }
 .site-meta .site-title {
-  font-size: 22px;
   font-weight: bolder;
-}
-@media (max-width: 767px) {
-  .site-meta .site-title {
-    line-height: 34px;
-  }
 }
 .logo-line-before,
 .logo-line-after {
@@ -2600,27 +2546,12 @@ hr {
   margin-top: 5px;
   margin-bottom: 20px;
 }
-.posts-expand .post-title {
-  position: relative;
-  font-size: 26px;
-  font-weight: 400;
-}
-@media (max-width: 767px) {
-  .posts-expand .post-title {
-    font-size: 22px;
-  }
-}
-@media (min-width: 1200px) {
-  .posts-expand .post-title {
-    font-size: 26px;
-  }
-}
 .posts-expand .post-title:hover:before {
   background: #222;
 }
 @media (max-width: 767px) {
   .posts-expand .post-body {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 .posts-expand .post-body img {
@@ -2646,7 +2577,7 @@ hr {
 }
 .post-button a {
   padding: 0;
-  font-size: 14px;
+  font-size: 0.875rem;
   background: none;
   border: none;
   border-bottom: 2px solid #666;
@@ -2654,12 +2585,12 @@ hr {
 }
 @media (max-width: 767px) {
   .post-button a {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 }
 @media (min-width: 1200px) {
   .post-button a {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 .post-button a:hover {
