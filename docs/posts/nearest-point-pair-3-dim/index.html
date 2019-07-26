@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="问题描述给出num个n维点(A11,A12,...,A1n)，(A21,A22,...,A2n)，……，(Am1,Am2,...,Amn)，请找出距离最近的两个点的坐标并按字典序输出。 输入第1行有两个数num和n，分别代表点的个数和维数。 之后第2行至第num+1行中，每一行都有n个数，代表An在n维坐标系中的坐标。其中num，n，An满足 1 &amp;lt;= n &amp;lt;= 3, 1 &amp;lt;=">
+<meta name="keywords" content="原创,分治,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="至多三维最近点问题的分治解法">
+<meta property="og:url" content="https://hblog.qhurc.com/posts/nearest-point-pair-3-dim/index.html">
+<meta property="og:site_name" content="qhurc&#x2F;hexo">
+<meta property="og:description" content="问题描述给出num个n维点(A11,A12,...,A1n)，(A21,A22,...,A2n)，……，(Am1,Am2,...,Amn)，请找出距离最近的两个点的坐标并按字典序输出。 输入第1行有两个数num和n，分别代表点的个数和维数。 之后第2行至第num+1行中，每一行都有n个数，代表An在n维坐标系中的坐标。其中num，n，An满足 1 &amp;lt;= n &amp;lt;= 3, 1 &amp;lt;=">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-26T20:23:49.994Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="至多三维最近点问题的分治解法">
+<meta name="twitter:description" content="问题描述给出num个n维点(A11,A12,...,A1n)，(A21,A22,...,A2n)，……，(Am1,Am2,...,Amn)，请找出距离最近的两个点的坐标并按字典序输出。 输入第1行有两个数num和n，分别代表点的个数和维数。 之后第2行至第num+1行中，每一行都有n个数，代表An在n维坐标系中的坐标。其中num，n，An满足 1 &amp;lt;= n &amp;lt;= 3, 1 &amp;lt;=">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://hblog.qhurc.com/posts/nearest-point-pair-3-dim/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>至多三维最近点问题的分治解法 | qhurc/hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">qhurc/hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">rm -rf /hexo</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hblog.qhurc.com/posts/nearest-point-pair-3-dim/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qhurchill">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qhurc/hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">至多三维最近点问题的分治解法
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-07 18:57:47" itemprop="dateCreated datePublished" datetime="2019-05-07T18:57:47+08:00">2019-05-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-27 04:23:49" itemprop="dateModified" datetime="2019-07-27T04:23:49+08:00">2019-07-27</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/posts/nearest-point-pair-3-dim/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/posts/nearest-point-pair-3-dim/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>给出<code>num</code>个<code>n</code>维点<code>(A11,A12,...,A1n)</code>，<code>(A21,A22,...,A2n)</code>，……，<code>(Am1,Am2,...,Amn)</code>，请找出距离最近的两个点的坐标并按字典序输出。</p>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p>第<code>1</code>行有两个数<code>num</code>和<code>n</code>，分别代表点的个数和维数。</p>
+<p>之后第<code>2</code>行至第<code>num+1</code>行中，每一行都有n个数，代表<code>An</code>在n维坐标系中的坐标。其中<code>num</code>，<code>n</code>，<code>An</code>满足</p>
+<pre><code>1 &lt;= n &lt;= 3, 1 &lt;= num &lt;= 10e5, -10e9 &lt;= An &lt;= 10e9
+</code></pre><h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p>输出最近点对的坐标，每行输出一个点的坐标。保证字典序较前的点先输出。</p>
+<h3 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h3><p>样例输入1</p>
+<pre><code>6 2
+342865007 -691265808
+168900467 -744748163
+-440434063 -184293515
+-691848451 -399926019
+609366198 724389818
+537557125 559390437
+</code></pre><p>样例输出1</p>
+<pre><code>537557125 559390437
+609366198 724389818
+</code></pre><p>样例输入2</p>
+<pre><code>6 3
+-136905867 883290928 667747376
+-160060934 957773808 -251430337
+-144533471 -470375553 701658111
+-929571734 4727839 -831028267
+-837100600 368786495 -752700652
+614613476 -813960031 -838790640
+</code></pre><p>样例输出2</p>
+<pre><code>-929571734 4727839 -831028267
+-837100600 368786495 -752700652
+</code></pre><h3 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h3><p>时间限制1s，内存限制256MB。</p>
+<h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, y = <span class="number">0</span>, z = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">```</span><br><span class="line">node(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> z) &#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;x = x;</span><br><span class="line">    <span class="keyword">this</span>-&gt;y = y;</span><br><span class="line">    <span class="keyword">this</span>-&gt;z = z;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">node() &#123;</span><br><span class="line">    x = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125; p\[<span class="number">100005</span>\];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">mergeRes</span> &#123;</span></span><br><span class="line">    <span class="keyword">double</span> result;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line"></span><br><span class="line">mergeRes() &#123;</span><br><span class="line">    a = b = result = <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> c\[<span class="number">100005</span>\], d\[<span class="number">100005</span>\];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n = <span class="number">1</span>, num;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">x_cmp</span><span class="params">(node a, node b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.x &lt; b.x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">min</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a &lt; b ? a : b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">mergeRes <span class="title">min</span><span class="params">(mergeRes a, mergeRes b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.result &lt; b.result ? a : b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">x_cmp1</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> p\[a\].x &lt; p\[b\].x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">y_cmp</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> p\[a\].y &lt; p\[b\].y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">yz_cmp</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p\[a\].y == p\[b\].y) <span class="keyword">return</span> p\[a\].z &lt; p\[b\].z;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> p\[a\].y &lt; p\[b\].y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">dis</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">pow</span>(<span class="built_in">pow</span>(p\[b\].x - p\[a\].x, <span class="number">2</span>) + <span class="built_in">pow</span>(p\[b\].y - p\[a\].y, <span class="number">2</span>) + <span class="built_in">pow</span>(p\[b\].z - p\[a\].z, <span class="number">2</span>), <span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dis1</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">abs</span>(p\[a\].x - p\[b\].x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> isZero = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">mergeRes <span class="title">merge</span><span class="params">(<span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span> </span>&#123;</span><br><span class="line">    mergeRes res;</span><br><span class="line">    <span class="keyword">int</span> i, j, k, l, cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> tempdis;</span><br><span class="line">    <span class="keyword">if</span> (hi - lo == <span class="number">2</span>) &#123;</span><br><span class="line">        res.result = n == <span class="number">1</span> ? dis1(lo, lo + <span class="number">1</span>) : dis(lo, lo + <span class="number">1</span>);</span><br><span class="line">        res.a = lo;</span><br><span class="line">        res.b = lo + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (hi - lo == <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="keyword">double</span> dis01 = dis(lo, lo + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">double</span> dis02 = dis(lo + <span class="number">1</span>, lo + <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">double</span> dis03 = dis(lo, lo + <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span> (dis01 &lt; dis02 &amp;&amp; dis01 &lt; dis03) &#123;</span><br><span class="line">            res.a = lo;</span><br><span class="line">            res.b = lo + <span class="number">1</span>;</span><br><span class="line">            res.result = dis01;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dis02 &lt; dis01 &amp;&amp; dis02 &lt; dis03) &#123;</span><br><span class="line">            res.a = lo + <span class="number">1</span>;</span><br><span class="line">            res.b = lo + <span class="number">2</span>;</span><br><span class="line">            res.result = dis02;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            res.a = lo;</span><br><span class="line">            res.b = lo + <span class="number">2</span>;</span><br><span class="line">            res.result = dis03;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">double</span> ans;</span><br><span class="line">    mergeRes ans1=merge(lo, mid),ans2=merge(mid, hi);</span><br><span class="line">    <span class="keyword">if</span>(ans1.result&gt;ans2.result) &#123;</span><br><span class="line">        res.result=ans2.result;</span><br><span class="line">        res.a=ans2.a;</span><br><span class="line">        res.b=ans2.b;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res.result=ans1.result;</span><br><span class="line">        res.a=ans1.a;</span><br><span class="line">        res.b=ans1.b;</span><br><span class="line">    &#125;</span><br><span class="line">    ans=res.result;</span><br><span class="line">    <span class="keyword">for</span> (i = lo; i &lt; hi; i++)</span><br><span class="line">        <span class="keyword">if</span> (p\[i\].x &gt; p\[mid\].x - ans &amp;&amp; p\[i\].x &lt; p\[mid\].x + ans) c\[cnt++\] = i;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) sort(c, c + cnt, x_cmp1);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">2</span>) sort(c, c + cnt, y_cmp);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">3</span>) sort(c, c + cnt, yz_cmp);</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; cnt; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (j = i + <span class="number">1</span>; j &lt; cnt; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (p\[c\[j\]\].y - p\[c\[i\]\].y &gt;= ans) <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">if</span> (n &gt; <span class="number">2</span>) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (k = j; k &lt; cnt; k++) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (p\[c\[j\]\].y != p\[c\[k\]\].y) &#123;</span><br><span class="line">                                <span class="comment">//|| p\[c\[k\]\].z - p\[c\[i\]\].z &gt;= ans) &#123;</span></span><br><span class="line">                            j = k - <span class="number">1</span>;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="comment">//if (p\[c\[i\]\].z - p\[c\[k\]\].z &gt;= ans) continue;</span></span><br><span class="line">                        tempdis = dis(c\[i\], c\[k\]);</span><br><span class="line">                        <span class="keyword">if</span> (ans &gt; tempdis) &#123;</span><br><span class="line">                            ans = tempdis;</span><br><span class="line">                            res.a = c\[i\];</span><br><span class="line">                            res.b = c\[k\];</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    tempdis = dis(c\[i\], c\[j\]);</span><br><span class="line">                    <span class="keyword">if</span> (ans &gt; tempdis) &#123;</span><br><span class="line">                        ans = tempdis;</span><br><span class="line">                        res.a = c\[i\];</span><br><span class="line">                        res.b = c\[j\];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (i != <span class="number">0</span>) &#123;</span><br><span class="line">                tempdis = dis(c\[i\], c\[i - <span class="number">1</span>\]);</span><br><span class="line">                <span class="keyword">if</span> (ans &gt; tempdis) &#123;</span><br><span class="line">                    ans = tempdis;</span><br><span class="line">                    res.a = c\[i\];</span><br><span class="line">                    res.b = c\[i - <span class="number">1</span>\];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    res.result = ans;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(node x)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, x.x);</span><br><span class="line">    <span class="keyword">if</span> (n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" %d"</span>, x.y);</span><br><span class="line">        <span class="keyword">if</span> (n &gt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" %d\\n"</span>, x.z);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"\\n"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"\\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;num, &amp;n);</span><br><span class="line">    node nnode;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;nnode.x);</span><br><span class="line">        <span class="keyword">if</span> (n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;nnode.y);</span><br><span class="line">            <span class="keyword">if</span> (n &gt; <span class="number">2</span>) &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;nnode.z);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        p\[i\] = nnode;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(p, p + num, x_cmp);</span><br><span class="line">    mergeRes mr = merge(<span class="number">0</span>, num);</span><br><span class="line">    node na = p\[mr.a\];</span><br><span class="line">    node nb = p\[mr.b\];</span><br><span class="line">    <span class="keyword">if</span>(na.x&gt;nb.x||(na.x==nb.x&amp;&amp;na.y&gt;nb.y)||(na.x==nb.x&amp;&amp;na.y==nb.y&amp;&amp;na.z&gt;nb.z)) &#123;</span><br><span class="line">        print(nb);</span><br><span class="line">        print(na);</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        print(na);</span><br><span class="line">        print(nb);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/原创/" rel="tag"># 原创</a>
+          
+            <a href="/tags/分治/" rel="tag"># 分治</a>
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/mx-blue-is-the-best/" rel="next" title="青轴大法好！">
+                <i class="fa fa-chevron-left"></i> 青轴大法好！
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/recommending-baba-is-you/" rel="prev" title="硬核安利 —— Baba is You">
+                硬核安利 —— Baba is You <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">qhurchill</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/AntSYau" title="GitHub &rarr; https://github.com/AntSYau" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:qshi@qhurc.com" title="E-Mail &rarr; mailto:qshi@qhurc.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.facebook.com/AntSYau" title="Facebook &rarr; https://www.facebook.com/AntSYau" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>Facebook</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://instagram.com/qhurchill" title="Instagram &rarr; https://instagram.com/qhurchill" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://t.me/qhurchill" title="Telegram &rarr; https://t.me/qhurchill" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qhurchill</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: false,
+    appId: 'CgA5fyPqgrIw64PRp6JKtff8-9Nh9j0Va',
+    appKey: 'Lq0iqngkiLv1bSu6Kw78vwFm',
+    placeholder: '支持文本及 M↓ 评论',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script>pangu.spacingPage();</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
