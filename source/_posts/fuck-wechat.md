@@ -7,11 +7,11 @@ tags:
 url: 85.html
 id: 85
 categories:
-  - 史特
+  - shitt
 date: 2019-04-09 19:40:55
 ---
 
-![](https://blog.qhurc.com/wp-content/uploads/2019/04/WeChat-839x1024.jpg)
+![](/images/WeChat.jpg)
 
 万恶的“将要访问”页面
 
@@ -25,4 +25,4 @@ date: 2019-04-09 19:40:55
 
 所以啊。以后给我发邮件，发到 fuck@qhurc.com 就可以了。
 
-#又是滚去写算法lab的一天
+\#又是滚去写算法lab的一天

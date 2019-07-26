@@ -2,13 +2,13 @@
 title: 服务器迁移
 tags:
   - Vultr
-  - 原创
-  - 推广
-  - 服务器
+  - original
+  - ads
+  - server
 url: 146.html
 id: 146
 categories:
-  - 史特
+  - shitt
 date: 2019-04-24 17:00:16
 ---
 
@@ -20,6 +20,7 @@ date: 2019-04-24 17:00:16
 
 参考一下～最便宜的配置一年US$60，还是比较不错的。
 
-[![](https://blog.qhurc.com/wp-content/uploads/2019/04/image.png)](https://www.vultr.com/?ref=8049593-4F)
+![](/images/image.png)
 
 要恰饭的嘛
+

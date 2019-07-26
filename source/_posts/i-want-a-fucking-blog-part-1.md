@@ -2,13 +2,13 @@
 title: 我也想要一个博客！！（一）
 tags:
   - Linux
-  - 博客
-  - 原创
-  - 服务器
+  - blog
+  - original
+  - server
 url: 16.html
 id: 16
 categories:
-  - 法克
+  - ffuck
 date: 2019-04-08 13:00:01
 ---
 
@@ -22,7 +22,7 @@ date: 2019-04-08 13:00:01
 
 我的域名是从 [Freenom](https://www.freenom.com) 免费获取的。五个免费的顶级域名都有12个月的免费期，每年到期前都能免费延12个月（其实相当于永久免费，只要你肯每年手动续域名）。网站有中文，注册都很方便。在配置域名之前，您需要了解[顶级域名、一级域名和二级域名的区别](https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D#%E5%9F%9F%E5%90%8D%E5%B1%82%E6%AC%A1)。你购买的域名（例如 qhurc.com）中，“com”是顶级域名，“qhurc”是一级域名。还记得之前我们填写过的DNS记录吗？DNS记录的第一项——Name——就定义了二级域名。你从域名提供商处购买的域名为顶级域名下的一级域名——对于本博客来说，就是 .com 域名下的 qhurc.com 。之后对于该顶级域名，旗下的所有二级域名均归你支配——你可以随意地创建二级域名而不受限制，例如 fuck.qhurc.com，shit.qhurc.com ，随便你。购买域名后，会要求你添加DNS记录，如下图所示。其中，Name 栏目填写的项目就是上面提到的二级域名——当然，如果你不想指定二级域名（即浏览器直接访问 http://qhurc.com 而非 http://blog.qhurc.com），将 Name 栏留空即可。TTL 定义了你要给服务器发送的数据包贴多少钱的邮票——理论上 TTL 越高您的数据包就被允许传输地更远（经过更多的网关）。Target 处填写你的服务器的 IP 地址。
 
-![Name 输入二级域名，Target输入VPS的IPv4地址](https://blog.qhurc.com/wp-content/uploads/2019/04/dns_name-1024x380.png)
+![Name 输入二级域名，Target输入VPS的IPv4地址](/images/dns_name.png)
 
 Name 输入二级域名（http://二级域名.fkqs.ml/。若想配置形如http://fkqs.ml/的域名，则将Name留空），Target 输入VPS分配的IPv4地址
 
@@ -97,7 +97,7 @@ LNMP代表Linux+Nginx+MySQL+PHP，这是WordPress必须的环境。我们现在�
 
 访问上面的网站，你会看到
 
-![](https://blog.qhurc.com/wp-content/uploads/2019/04/lnmp_auto.png)
+![](/images/lnmp_auto.png)
 
 如果你的服务器内存大于1GB，请将MySQL版本选为8.0（或MySQL的最新版本），并将PHP版本选为7.2（或PHP的最新版本）。将数据库Root用户密码选择为你想要的，点击下方的“生成”按钮，该网站会为你生成一个脚本。将该脚本复制到你的ssh终端中并执行，形如：
 

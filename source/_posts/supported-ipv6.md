@@ -12,7 +12,7 @@ date: 2019-05-11 10:33:03
 
 刚刚在 DNS 中添加了域名的 AAAA 解析，现在已经可以通过 IPv6 来访问本站了。如果你的网络环境支持 IPv6，这一切换是自动的。
 
-![](https://blog.qhurc.com/wp-content/uploads/2019/05/ipv6-1024x391.png)
+![](/images/ipv6-1024x391.png)
 
 IPv6 supported!
 

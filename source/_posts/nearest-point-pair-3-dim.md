@@ -1,13 +1,13 @@
 ---
 title: 至多三维最近点问题的分治解法
 tags:
-  - 分治
-  - 原创
-  - 算法
+  - divide&conquer
+  - original
+  - algorithm
 url: 162.html
 id: 162
 categories:
-  - 算法
+  - algorithms
 date: 2019-05-07 18:57:47
 ---
 

@@ -1,11 +1,11 @@
 ---
 title: qhurc/cloud 服务已启动
 tags:
-  - 原创
+  - original
 url: 232.html
 id: 232
 categories:
-  - 史特
+  - shitt
 date: 2019-05-17 16:08:36
 ---
 

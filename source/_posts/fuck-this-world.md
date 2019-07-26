@@ -5,7 +5,7 @@ tags:
 url: 1.html
 id: 1
 categories:
-  - 史特
+  - shitt
 date: 2019-04-07 12:50:04
 ---
 

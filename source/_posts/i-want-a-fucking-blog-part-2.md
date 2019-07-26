@@ -1,12 +1,12 @@
 ---
 title: 我也想要一个博客！！（二）
 tags:
-  - 原创
-  - 服务器
+  - original
+  - server
 url: 98.html
 id: 98
 categories:
-  - 法克
+  - ffuck
 date: 2019-04-24 12:00:54
 ---
 
@@ -32,7 +32,7 @@ date: 2019-04-24 12:00:54
 
 现在，尝试登录您的网站吧。一切正常的话，您应该已经能看到 WordPress 的欢迎界面了。
 
-![](https://blog.qhurc.com/wp-content/uploads/2019/04/wp-install-step.png)
+![](/images/wp-install-step.png)
 
 你将会看到这个界面
 

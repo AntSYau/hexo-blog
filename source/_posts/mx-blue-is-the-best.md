@@ -2,12 +2,12 @@
 title: 青轴大法好！
 tags:
   - ikbc
-  - 原创
-  - 键盘
+  - original
+  - keyboard
 url: 154.html
 id: 154
 categories:
-  - 史特
+  - shitt
 date: 2019-04-25 17:02:48
 ---
 
@@ -15,11 +15,11 @@ date: 2019-04-25 17:02:48
 
 昨天晚上上思修课的时候百无聊赖，于是打开京东开始闲逛。突然看到了 ikbc 在品牌促销，329的 ikbc c87 突然降到了 288，于是……
 
-![](https://blog.qhurc.com/wp-content/uploads/2019/04/image-1-1024x333.png)
+![](/images/image-1.png)
 
 真香
 
-![](https://blog.qhurc.com/wp-content/uploads/2019/04/ikbc-c87-mx-blue-1024x768.jpg)
+![](/images/ikbc-c87-mx-blue.jpg)
 
 换上了原厂高度的《Akko 9009 改》键帽，更香了
 
@@ -27,6 +27,6 @@ date: 2019-04-25 17:02:48
 
 最后放一张证件照：
 
-![](https://blog.qhurc.com/wp-content/uploads/2019/04/ikbc-c87-1024x465.jpg)
+![](/images/ikbc-c87.jpg)
 
 一定要买白色！白色颜值爆表！！黑色又丑又压抑……
