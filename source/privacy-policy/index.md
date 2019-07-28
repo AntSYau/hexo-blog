@@ -9,16 +9,16 @@ date: 2019-04-07 23:59:04
 我是谁?
 ----
 
-我的博客的地址为: **https://blog.qhurc.com** 。
+我的博客的地址为: **https://hblog.qhurc.com** 。
 
-您可能由 https://blog.fkqs.ml/ 跳转而来。fkqs.ml 已停止使用，请收藏上面的新地址。
+~~您可能由 https://blog.fkqs.ml/ 跳转而来。fkqs.ml 已停止使用，请收藏上面的新地址。~~
 
 我会收集哪些数据？我将如何用它们？
 -----------------
 
 ### 评论
 
-当您留言时，我会记录访客的IP地址和浏览器信息并将它们发送到 Akismet 用以减少垃圾评论。Akismet 将按照[这个准则](https://akismet.com/privacy/)处理您的评论数据。
+当您留言时，我会记录您的昵称、IP地址和浏览器信息。这些信息会按照[Valine](https://valine.js.org/)插件定义的数据结构储存在LeanCloud。LeanCloud的隐私政策可参见[此处](https://leancloud.app/terms/)。
 
 我可能会向 [Gravatar](https://cn.gravatar.com/) 提供一个匿名的字符串（一个 hash）以确认您是否拥有 Gravatar 账户。评论通过后，您的昵称和 Gravatar 头像将会显示在您的评论旁。Gravatar 的隐私政策[在此](https://automattic.com/privacy/)。
 
