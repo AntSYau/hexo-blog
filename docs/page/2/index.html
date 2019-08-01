@@ -11,10 +11,8 @@
 
 
 
-  
 
-
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,6 +23,11 @@
 
 
 
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -47,16 +50,16 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.2">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/cropped-neko-3.jpg?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cropped-neko-3.jpg?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cropped-neko-4.jpg?v=7.1.2">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+  <link rel="mask-icon" href="/images/cropped-neko-3.jpg?v=7.1.2" color="#222">
 
 
 
@@ -68,16 +71,16 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '7.1.2',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    back2top: ,
-    back2top_sidebar: ,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
     fancybox: false,
     fastclick: false,
     lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -226,6 +229,57 @@
         
         
           
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-archives">
 
     
@@ -237,6 +291,23 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-隐私">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/privacy-policy" rel="section"><i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br>隐私</a>
 
   </li>
 
@@ -378,6 +449,19 @@
           
             
             
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/posts/fuck-wechat/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/posts/fuck-wechat/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -404,16 +488,23 @@
       
         
           
-            <p><img src="/images/WeChat.jpg" alt></p>
-<p>万恶的“将要访问”页面</p>
-<p>我发现，微信“将要访问”页面是否出现只跟顶级域名是不是常用域名（.com, .cn, .org, …）有关[/抠鼻]所以在好几分钟的努力下，qhurc 开启了新的域名——</p>
-<p><a href="https://blog.qhurc.com/" target="_blank" rel="noopener">https://blog.qhurc.com/</a></p>
-<p>从今往后，妈妈再也不用担心微信限制博文的跳转啦！</p>
-<p>饱受 10cent 折磨的 qhurc 决定占 10cent 一点小便宜来弥补一下——于是就“无意”地发现了，<a href="https://exmail.qq.com/" target="_blank" rel="noopener">10c企业邮箱</a>提供免费邮箱服务！</p>
-<p>所以啊。以后给我发邮件，发到 fuck@qhurc.com 就可以了。</p>
-<p>#又是滚去写算法lab的一天</p>
-
+            <p>
+              
+万恶的“将要访问”页面
+我发现，微信“将要访问”页面是否出现只跟顶级域名是不是常用域名（.com, .cn, .org, …）有关[/抠鼻]所以在好几分钟的努力下，qhurc 开启了新的域名——
+https://blog.qhurc.com/
+从今往后，妈妈再也不用担心微信限制
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/fuck-wechat/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -558,6 +649,19 @@
           
             
             
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/posts/i-want-a-fucking-blog-part-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/posts/i-want-a-fucking-blog-part-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -584,67 +688,20 @@
       
         
           
-            <p>之前承诺了要把搭博客的细节写出来的，那么现在开个天坑慢慢写好了，反正离考试貌似还有好长时间（逃</p>
-<h3 id="购买服务器"><a href="#购买服务器" class="headerlink" title="购买服务器"></a>购买服务器</h3><p>服务器可不是天上掉下来的，想自己单干要付出一点代价。我的VPS服务器购自 <a href="https://hostus.us/" target="_blank" rel="noopener">HostUS</a> ，年金是16美元（<a href="http://www.hostusvps.com/url/hostus-us-768mb" target="_blank" rel="noopener">这个配置</a>，节选自<a href="http://www.hostusvps.com/" target="_blank" rel="noopener">这个网页</a>）；当然你也可以从别的VPS提供商购买。购买服务器时会要求你设置服务器密码，这个密码一定不能忘，后面有用。服务器名称可以随便设置，不会影响使用。操作系统建议选择 CentOS 7 或者 Ubuntu 16.04 ，这两个系统的支持文档和软件包会全一些。配置好后，VPS提供商会给你提供一个IPv4地址（形如220.181.57.216），记下这个地址。</p>
-<h3 id="获得域名"><a href="#获得域名" class="headerlink" title="获得域名"></a>获得域名</h3><p>我的域名是从 <a href="https://www.freenom.com" target="_blank" rel="noopener">Freenom</a> 免费获取的。五个免费的顶级域名都有12个月的免费期，每年到期前都能免费延12个月（其实相当于永久免费，只要你肯每年手动续域名）。网站有中文，注册都很方便。在配置域名之前，您需要了解<a href="https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D#%E5%9F%9F%E5%90%8D%E5%B1%82%E6%AC%A1" target="_blank" rel="noopener">顶级域名、一级域名和二级域名的区别</a>。你购买的域名（例如 qhurc.com）中，“com”是顶级域名，“qhurc”是一级域名。还记得之前我们填写过的DNS记录吗？DNS记录的第一项——Name——就定义了二级域名。你从域名提供商处购买的域名为顶级域名下的一级域名——对于本博客来说，就是 .com 域名下的 qhurc.com 。之后对于该顶级域名，旗下的所有二级域名均归你支配——你可以随意地创建二级域名而不受限制，例如 fuck.qhurc.com，shit.qhurc.com ，随便你。购买域名后，会要求你添加DNS记录，如下图所示。其中，Name 栏目填写的项目就是上面提到的二级域名——当然，如果你不想指定二级域名（即浏览器直接访问 <a href="http://qhurc.com" target="_blank" rel="noopener">http://qhurc.com</a> 而非 <a href="http://blog.qhurc.com），将" target="_blank" rel="noopener">http://blog.qhurc.com），将</a> Name 栏留空即可。TTL 定义了你要给服务器发送的数据包贴多少钱的邮票——理论上 TTL 越高您的数据包就被允许传输地更远（经过更多的网关）。Target 处填写你的服务器的 IP 地址。</p>
-<p><img src="/images/dns_name.png" alt="Name 输入二级域名，Target输入VPS的IPv4地址"></p>
-<p>Name 输入二级域名（<a href="http://二级域名.fkqs.ml/。若想配置形如http://fkqs.ml/的域名，则将Name留空），Target" target="_blank" rel="noopener">http://二级域名.fkqs.ml/。若想配置形如http://fkqs.ml/的域名，则将Name留空），Target</a> 输入VPS分配的IPv4地址</p>
-<p>等待一段时间（几分钟），配置就生效了。不过此时服务器还没有配置web环境，故即使访问该域名也什么都显示不出来。所以下面，我们就需要</p>
-<h3 id="初次配置服务器"><a href="#初次配置服务器" class="headerlink" title="初次配置服务器"></a>初次配置服务器</h3><p>我们现在要通过ssh远程访问你的服务器。打开 Windows Powershell 或 Terminal，敲入</p>
-<pre><code>$ ssh root@[your_server_ip] -p [your_ssh_port]
-</code></pre><p>其中，开头的$是普通用户权限的意思，不需要敲入；将[your_server_ip]替换为你的VPS服务器的IPv4地址，将[your_ssh_port]替换为你的ssh端口。如果你不知道ssh端口是什么，那么直接输入22，这是默认端口。接下来，ssh可能会显示如下内容：</p>
-<pre><code>$ ssh root@8.8.8.8 -p 22
-The authenticity of host &#39;[8.8.8.8]:22 ([8.8.8.8]:22)&#39; can&#39;t be established.
-ECDSA key fingerprint is SHA256:yiduiluanmayiduiluanmayiduiluanmayiduiluanma.
-Are you sure you want to continue connecting (yes/no)?
-</code></pre><p>这段话的意思是，“我他喵的没见过这个服务器啊我不敢连啊这玩意没有病毒吧可能会把电脑搞炸的你知道吗！你还要冒着死亡的风险继续连接吗？”。当然了，你不需要理解这段话的意思，敲入“yes”+回车即可。ssh工具现在会提示你输入root用户的密码——还记得上面我让你记录的服务器密码吗？对没错！！就是那个！！！敲入密码的时候不会有显示的（对没错，连“*”号都没有）。如果登陆成功，你的终端将会显示如下内容：</p>
-<pre><code>Warning: Permanently added &#39;[8.8.8.8]:22&#39; (ECDSA) to the list of known hosts.
-root@8.8.8.8&#39;s password:
-Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
-[root@name ~]#
-</code></pre><p>这时，你的终端已经连接到远程服务器了，你所做的所有事情、你访问的所有文件都只与远程服务器有关。注意这段代码的最后一行。root代表你的远程用户名是root，name代表你的服务器名称（你自己配置的）。“~”代表当前操作的文件夹（比如，如果你在/home/fuck/shit目录下，这个~就会变成shit。~代表用户登陆后的默认目录），#代表高级权限（与上文已经展示过的$相对——$代表低级权限）。如果你是使用默认端口登陆的，那么第一件事情就是修改ssh的默认端口——</p>
-<pre><code># vi /etc/ssh/sshd_config
-</code></pre><p>同样地，#号不用键入。正常情况下，你的屏幕会变成</p>
-<pre><code>#       $OpenBSD: sshd_config,v 1.93 2014/01/10 05:59:19 djm Exp $
-
-# This is the sshd server system-wide configuration file.  See
-# sshd_config(5) for more information.
-
-# This sshd was compiled with PATH=/usr/local/bin:/usr/bin
-
-# The strategy used for options in the default sshd_config shipped with
-# OpenSSH is to specify options with their default value where
-# possible, but leave them commented.  Uncommented options override the
-# default value.
-
-# If you want to change the port on a SELinux system, you have to tell
-# SELinux about this change.
-# semanage port -a -t ssh_port_t -p tcp #PORTNUMBER
-#
-#Port 9622
-#AddressFamily any
-#ListenAddress 0.0.0.0
-#ListenAddress ::
-</code></pre><p>以及后面还有好多东西。我们先键入一个i，这时屏幕最后一行会变成</p>
-<pre><code>-- INSERT --
-</code></pre><p>这时就进入了vim编辑器的编辑模式。看到有一行写着 #port 22 了吗？把它前面的#去掉，然后把22改成其它你喜欢的端口（建议在8192以上，尽量在10000以下。这里设置为9622）。设置完成后，按一下“ESC”，你会发现最后一行的文字消失了！接着，输入——</p>
-<pre><code>:wq
-</code></pre><p>这三个字符会出现在最后一行消失的文字之上（这代表vim编辑器退出了编辑模式。:冒号代表进入指令模式。w代表保存，q代表退出）。确认无误后，按回车键，你会发现熟悉的命令行回来了。为了让上面的配置生效，你需要重新启动ssh服务。输入</p>
-<pre><code># systemctl restart sshd
-</code></pre><p>这一操作会让你退出ssh。按照上面教过的方法重新登陆远程服务器即可（记得将[your_ssh_port]改为新的端口号哦）。如果你重新回来了，那么让我们</p>
-<h3 id="配置LNMP环境"><a href="#配置LNMP环境" class="headerlink" title="配置LNMP环境"></a>配置LNMP环境</h3><p><strong>由于本文面向第一次配置环境的小白，所以下面所有复杂过程均应用快速脚本。</strong></p>
-<p>LNMP代表Linux+Nginx+MySQL+PHP，这是WordPress必须的环境。我们现在用<a href="https://lnmp.org/auto.html" target="_blank" rel="noopener">LNMP.org</a>提供的脚本自动安装LNMP环境。</p>
-<p>访问上面的网站，你会看到</p>
-<p><img src="/images/lnmp_auto.png" alt></p>
-<p>如果你的服务器内存大于1GB，请将MySQL版本选为8.0（或MySQL的最新版本），并将PHP版本选为7.2（或PHP的最新版本）。将数据库Root用户密码选择为你想要的，点击下方的“生成”按钮，该网站会为你生成一个脚本。将该脚本复制到你的ssh终端中并执行，形如：</p>
-<pre><code># wget http://soft.vpser.net/lnmp/lnmp1.5.tar.gz -cO lnmp1.5.tar.gz &amp;&amp; tar zxf lnmp1.5.tar.gz &amp;&amp; cd lnmp1.5 &amp;&amp; LNMP_Auto=&quot;y&quot; DBSelect=&quot;2&quot; DB_Root_Password=&quot;lnmp.org&quot; InstallInnodb=&quot;y&quot; PHPSelect=&quot;5&quot; SelectMalloc=&quot;1&quot; ./install.sh lnmp
-</code></pre><p>这段代码会执行10~20分钟。你可以坐下来泡杯咖啡，看一集《夏目友人帐》。《罪恶黑名单》也不错，但不要看太长时间——ssh在空闲一定时间后就会自动退出的，你还得重新登录一遍，很麻烦。</p>
-<p>随后，你需要安装 PureFTPd 。输入 <code># ./pureftpd.sh</code> 以安装 pureftpd。之后，在控制台中输入</p>
-<pre><code># usermod -G www ftp
-</code></pre><p>以让 FTP 服务器对 Nginx 网站内的文件有操作权（这一步是为了支持 WordPress 的插件安装和本体更新）。</p>
-<p>现在，你已经完成了最麻烦的内容——之后的事情，就很简单了。不过我猜你到这里已经又困又累了（我也是），所以，之后的内容回头再更新吧。</p>
-
+            <p>
+              之前承诺了要把搭博客的细节写出来的，那么现在开个天坑慢慢写好了，反正离考试貌似还有好长时间（逃
+购买服务器服务器可不是天上掉下来的，想自己单干要付出一点代价。我的VPS服务器购自 HostUS ，年金是16美元（这个配置，节选自这个网页）；当然你也可以从别的VPS提供商购买。购买
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/i-want-a-fucking-blog-part-1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -789,6 +846,19 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
           
             
             
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/posts/fuck-this-world/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/posts/fuck-this-world/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -815,13 +885,20 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
       
         
           
-            <p>折腾一晚上搞定了WordPress，期间四处碰壁，不过最后还是成功了🎉！以后会在这里发一些技术文章（法克）和一些平时发生的事情（屎特）。希望大家不！要！看！尤其是不要介绍给别人！！！我这么华丽的用词会让别人自愧不如哒。</p>
-<p>啊呀呀一晚上走了不少弯路，一年多没做服务器了，手感全都没了qaq占个坑，过几天考完试了，把我选服务器、买域名、搭博客的过程全都发出来吧，让后人上手快一些。</p>
-<p>透，都这么晚了，睡觉！</p>
-<p>I’m ODIN!!!</p>
-<p>ps.推荐大家去看 American Gods，巨好看！</p>
-
+            <p>
+              折腾一晚上搞定了WordPress，期间四处碰壁，不过最后还是成功了🎉！以后会在这里发一些技术文章（法克）和一些平时发生的事情（屎特）。希望大家不！要！看！尤其是不要介绍给别人！！！我这么华丽的用词会让别人自愧不如哒。
+啊呀呀一晚上走了不少弯路，一年多没做服务器了，手感全都没了
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/fuck-this-world/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -996,7 +1073,76 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
           
 
           
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/AntSYau" title="GitHub &rarr; https://github.com/AntSYau" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:qshi@qhurc.com" title="E-Mail &rarr; mailto:qshi@qhurc.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.facebook.com/AntSYau" title="Facebook &rarr; https://www.facebook.com/AntSYau" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>Facebook</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://instagram.com/qhurchill" title="Instagram &rarr; https://instagram.com/qhurchill" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://t.me/qhurchill" title="Telegram &rarr; https://t.me/qhurchill" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
+                </span>
+              
+            </div>
+          
 
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
           
 
           
@@ -1037,15 +1183,9 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.2</div>
 
 
 
@@ -1063,6 +1203,11 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
       </div>
     </footer>
 
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
     
@@ -1128,31 +1273,17 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
   
 
 
-  <script src="/js/src/schemes/muse.js?v=7.1.2"></script>
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
 
 
-
-  
-
-  
-
-
-  <script src="/js/next-boot.js?v=7.1.2"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
   
 
   
 
-  
 
-  
-
-
-
-  
-
-
+  <script src="/js/next-boot.js?v=7.1.2"></script>
 
 
   
@@ -1162,6 +1293,64 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
   
 
   
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: '2SNc6DmMpiLkqPzcDaIDsogo-MdYXbMMI',
+    appKey: 'g2apE9KP7QmetbgW7en4r91h',
+    placeholder: '支持文本及 M↓ 评论',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn'
+  });
+</script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+
 
   
 
@@ -1174,6 +1363,13 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
   
 
   
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script>pangu.spacingPage();</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
 
   
 

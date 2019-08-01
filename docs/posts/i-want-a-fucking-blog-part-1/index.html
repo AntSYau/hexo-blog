@@ -11,10 +11,8 @@
 
 
 
-  
 
-
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,6 +23,11 @@
 
 
 
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -47,16 +50,16 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.2">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/cropped-neko-3.jpg?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cropped-neko-3.jpg?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cropped-neko-4.jpg?v=7.1.2">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+  <link rel="mask-icon" href="/images/cropped-neko-3.jpg?v=7.1.2" color="#222">
 
 
 
@@ -68,16 +71,16 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '7.1.2',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    back2top: ,
-    back2top_sidebar: ,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
     fancybox: false,
     fastclick: false,
     lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -233,6 +236,57 @@
         
         
           
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-archives">
 
     
@@ -244,6 +298,23 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-隐私">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/privacy-policy" rel="section"><i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br>隐私</a>
 
   </li>
 
@@ -383,6 +454,19 @@
           
             
             
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/posts/i-want-a-fucking-blog-part-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/posts/i-want-a-fucking-blog-part-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -487,6 +571,9 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
 
     <footer class="post-footer">
       
+        
+          
+        
         <div class="post-tags">
           
             <a href="/tags/original/" rel="tag"># original</a>
@@ -543,6 +630,10 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
           
 
   
+    <div class="comments" id="comments">
+    </div>
+
+  
 
 
 
@@ -564,17 +655,8 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -678,7 +760,76 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
           
 
           
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/AntSYau" title="GitHub &rarr; https://github.com/AntSYau" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:qshi@qhurc.com" title="E-Mail &rarr; mailto:qshi@qhurc.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.facebook.com/AntSYau" title="Facebook &rarr; https://www.facebook.com/AntSYau" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>Facebook</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://instagram.com/qhurchill" title="Instagram &rarr; https://instagram.com/qhurchill" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://t.me/qhurchill" title="Telegram &rarr; https://t.me/qhurchill" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
+                </span>
+              
+            </div>
+          
 
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
           
 
           
@@ -692,23 +843,6 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#购买服务器"><span class="nav-number">1.</span> <span class="nav-text">购买服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得域名"><span class="nav-number">2.</span> <span class="nav-text">获得域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初次配置服务器"><span class="nav-number">3.</span> <span class="nav-text">初次配置服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置LNMP环境"><span class="nav-number">4.</span> <span class="nav-text">配置LNMP环境</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -736,15 +870,9 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.2</div>
 
 
 
@@ -762,6 +890,11 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
       </div>
     </footer>
 
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
     
@@ -827,7 +960,8 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
   
 
 
-  <script src="/js/src/schemes/muse.js?v=7.1.2"></script>
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+
 
 
 
@@ -840,7 +974,67 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
   
 
 
-  <script src="/js/next-boot.js?v=7.1.2"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: '2SNc6DmMpiLkqPzcDaIDsogo-MdYXbMMI',
+    appKey: 'g2apE9KP7QmetbgW7en4r91h',
+    placeholder: '支持文本及 M↓ 评论',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
 
 
   
@@ -851,34 +1045,16 @@ Last login: Sun Apr  7 21:20:00 2019 from 4.4.4.4
 
   
 
-
-  
-
-
-  
-
-
-
-
   
 
   
 
   
-
   
-
   
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script>pangu.spacingPage();</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-  
-
-  
-
-  
-
-  
-
-  
 
   
 
