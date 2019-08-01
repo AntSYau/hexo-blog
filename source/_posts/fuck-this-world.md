@@ -1,7 +1,7 @@
 ---
 title: 世界你好！
 tags:
-  - 原创
+  - original
 url: 1.html
 id: 1
 categories:
