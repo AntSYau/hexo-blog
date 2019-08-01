@@ -1,9 +1,9 @@
 ---
 title: 你好，微信！
 tags:
-  - 原创
-  - 微信
-  - 邮箱
+  - original
+  - wechat
+  - email
 url: 85.html
 id: 85
 categories:

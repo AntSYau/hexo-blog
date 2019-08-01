@@ -11,8 +11,10 @@
 
 
 
+  
 
-<html class="theme-next mist" lang="zh-CN">
+
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,9 +25,6 @@
 
 
 
-
-  <meta http-equiv="Cache-Control" content="no-transform">
-  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -48,16 +47,16 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.2">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/cropped-neko-3.jpg?v=7.1.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/cropped-neko-3.jpg?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/cropped-neko-4.jpg?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
 
 
-  <link rel="mask-icon" href="/images/cropped-neko-3.jpg?v=7.1.2" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
 
 
 
@@ -69,16 +68,16 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Muse',
     version: '7.1.2',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: false,
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    back2top: ,
+    back2top_sidebar: ,
     fancybox: false,
     fastclick: false,
     lazyload: false,
     tabs: true,
-    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -96,7 +95,7 @@
 
 
   <meta name="description" content="刚刚在 DNS 中添加了域名的 AAAA 解析，现在已经可以通过 IPv6 来访问本站了。如果你的网络环境支持 IPv6，这一切换是自动的。  IPv6 supported! 此外，我开放了（没什么用的） 用户注册。不想用自己邮箱的同学也可以来找我申请 @qhurc.com 邮箱，我心情好的话没准会给你开一个。 以上。还是肝算法lab的一天。">
-<meta name="keywords" content="原创,IPv6">
+<meta name="keywords" content="original,IPv6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="现时已添加 IPv6 支持">
 <meta property="og:url" content="https://hblog.qhurc.com/posts/supported-ipv6/index.html">
@@ -104,7 +103,7 @@
 <meta property="og:description" content="刚刚在 DNS 中添加了域名的 AAAA 解析，现在已经可以通过 IPv6 来访问本站了。如果你的网络环境支持 IPv6，这一切换是自动的。  IPv6 supported! 此外，我开放了（没什么用的） 用户注册。不想用自己邮箱的同学也可以来找我申请 @qhurc.com 邮箱，我心情好的话没准会给你开一个。 以上。还是肝算法lab的一天。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://hblog.qhurc.com/images/ipv6-1024x391.png">
-<meta property="og:updated_time" content="2019-07-26T21:23:43.929Z">
+<meta property="og:updated_time" content="2019-08-01T20:01:51.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="现时已添加 IPv6 支持">
 <meta name="twitter:description" content="刚刚在 DNS 中添加了域名的 AAAA 解析，现在已经可以通过 IPv6 来访问本站了。如果你的网络环境支持 IPv6，这一切换是自动的。  IPv6 supported! 此外，我开放了（没什么用的） 用户注册。不想用自己邮箱的同学也可以来找我申请 @qhurc.com 邮箱，我心情好的话没准会给你开一个。 以上。还是肝算法lab的一天。">
@@ -233,57 +232,6 @@
         
         
           
-          <li class="menu-item menu-item-about">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
-        
-        
-        
-          
           <li class="menu-item menu-item-archives">
 
     
@@ -295,23 +243,6 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-隐私">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/privacy-policy" rel="section"><i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br>隐私</a>
 
   </li>
 
@@ -423,7 +354,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-27 05:23:43" itemprop="dateModified" datetime="2019-07-27T05:23:43+08:00">2019-07-27</time>
+                <time title="修改时间：2019-08-02 04:01:51" itemprop="dateModified" datetime="2019-08-02T04:01:51+08:00">2019-08-02</time>
               
             
           </span>
@@ -440,7 +371,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/法克/" itemprop="url" rel="index"><span itemprop="name">法克</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ffuck/" itemprop="url" rel="index"><span itemprop="name">ffuck</span></a></span>
 
                 
                 
@@ -450,19 +381,6 @@
 
           
             
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/posts/supported-ipv6/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/posts/supported-ipv6/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -514,12 +432,9 @@
 
     <footer class="post-footer">
       
-        
-          
-        
         <div class="post-tags">
           
-            <a href="/tags/原创/" rel="tag"># 原创</a>
+            <a href="/tags/original/" rel="tag"># original</a>
           
             <a href="/tags/IPv6/" rel="tag"># IPv6</a>
           
@@ -567,10 +482,6 @@
 
           </div>
           
-
-  
-    <div class="comments" id="comments">
-    </div>
 
   
 
@@ -635,9 +546,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -703,76 +612,7 @@
           
 
           
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/AntSYau" title="GitHub &rarr; https://github.com/AntSYau" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:qshi@qhurc.com" title="E-Mail &rarr; mailto:qshi@qhurc.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://www.facebook.com/AntSYau" title="Facebook &rarr; https://www.facebook.com/AntSYau" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>Facebook</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://instagram.com/qhurchill" title="Instagram &rarr; https://instagram.com/qhurchill" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://t.me/qhurchill" title="Telegram &rarr; https://t.me/qhurchill" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
-                </span>
-              
-            </div>
-          
 
-          
-             <div class="cc-license motion-element" itemprop="license">
-              
-              
-                
-              
-              
-              
-              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-             </div>
           
 
           
@@ -813,9 +653,15 @@
 </div>
 
 
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
 
 
 
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.2</div>
 
 
 
@@ -833,11 +679,6 @@
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -903,8 +744,7 @@
   
 
 
-  <script src="/js/schemes/muse.js?v=7.1.2"></script>
-
+  <script src="/js/src/schemes/muse.js?v=7.1.2"></script>
 
 
 
@@ -917,7 +757,7 @@
   
 
 
-  <script src="/js/next-boot.js?v=7.1.2"></script>
+  <script src="/js/next-boot.js?v=7.1.2"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
   
@@ -927,36 +767,6 @@
   
 
   
-  
-
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: true,
-    notify: true,
-    appId: '2SNc6DmMpiLkqPzcDaIDsogo-MdYXbMMI',
-    appKey: 'g2apE9KP7QmetbgW7en4r91h',
-    placeholder: '支持文本及 M↓ 评论',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn'
-  });
-</script>
-
-
 
 
   
@@ -972,13 +782,6 @@
   
 
   
-  
-
-  
-  
-
-  
-
 
   
 
@@ -993,11 +796,6 @@
   
 
   
-  
-  
-  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
-  <script>pangu.spacingPage();</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-
 
   
 

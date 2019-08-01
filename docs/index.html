@@ -11,8 +11,10 @@
 
 
 
+  
 
-<html class="theme-next mist" lang="zh-CN">
+
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,9 +25,6 @@
 
 
 
-
-  <meta http-equiv="Cache-Control" content="no-transform">
-  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -48,16 +47,16 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.2">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/cropped-neko-3.jpg?v=7.1.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/cropped-neko-3.jpg?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/cropped-neko-4.jpg?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
 
 
-  <link rel="mask-icon" href="/images/cropped-neko-3.jpg?v=7.1.2" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
 
 
 
@@ -69,16 +68,16 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Muse',
     version: '7.1.2',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: false,
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    back2top: ,
+    back2top_sidebar: ,
     fancybox: false,
     fastclick: false,
     lazyload: false,
     tabs: true,
-    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -227,57 +226,6 @@
         
         
           
-          <li class="menu-item menu-item-about">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
-        
-        
-        
-          
           <li class="menu-item menu-item-archives">
 
     
@@ -289,23 +237,6 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-隐私">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/privacy-policy" rel="section"><i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br>隐私</a>
 
   </li>
 
@@ -435,19 +366,6 @@
           
             
             
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/posts/knapsack-problem/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/posts/knapsack-problem/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -474,20 +392,9 @@
       
         
           
-            <p>
-              01背包问题问题有$N$件物品和一个容量为$V$的背包，放入第$i$件物品耗费的费用是$C_i$，得到的价值是$W_i$。求解将哪些物品装入背包可使价值总和最大。
+            <h1 id="01背包问题"><a href="#01背包问题" class="headerlink" title="01背包问题"></a>01背包问题</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>有$N$件物品和一个容量为$V$的背包，放入第$i$件物品耗费的费用是$C_i$，得到的价值是$W_i$。求解将哪些物品装入背包可使价值总和最大。</p>
 
-              
-            </p>
-          <!--noindex-->
           
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/knapsack-problem/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -632,19 +539,6 @@
           
             
             
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/posts/data-mining-revise/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/posts/data-mining-revise/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -671,19 +565,212 @@
       
         
           
-            <p>
-              课本: Leskovec, J., Rajaraman, A., &amp; Ullman, J. D. (2014). Mining of Massive Datasets (2nd ed.). Cambridge, England: Cambridge University 
-              ...
-            </p>
-          <!--noindex-->
+            <p><a href="http://www.mmds.org" target="_blank" rel="noopener">课本</a>: Leskovec, J., Rajaraman, A., &amp; Ullman, J. D. (2014). <em>Mining of Massive Datasets</em> (2nd ed.). Cambridge, England: Cambridge University Press.</p>
+<hr>
+<p>修订：重写了LSH算法的部分（修正了错误）。增加了DGIM算法。</p>
+<p>修订：更正了Winnow算法中的错误。</p>
+<p>修订：新增了BFR算法。</p>
+<hr>
+<p>由于前6章在小测中已有提及，故只针对部分算法做简单总结。</p>
+<h1 id="第3章-相似项发现"><a href="#第3章-相似项发现" class="headerlink" title="第3章 相似项发现"></a>第3章 相似项发现</h1><h2 id="Jaccard-相似度"><a href="#Jaccard-相似度" class="headerlink" title="Jaccard 相似度"></a>Jaccard 相似度</h2><p>集合的 Jaccard 相似度为 $\dfrac{|S\cap T|}{|S\cup T|}$ 。Jaccard相似度可记为$\text{SIM}(S,T)$。</p>
+<h2 id="文档的-Shingling"><a href="#文档的-Shingling" class="headerlink" title="文档的 Shingling"></a>文档的 Shingling</h2><p>一篇文章就是一个字符串。文档的<em>k</em>-shingle定义为其中任意长度为$k$的字串。于是，一篇文档可以表示成文档中出现一次或多次的<em>k</em>-shingle的集合。</p>
+<p>可以不将子字符串直接用成shingle，而是将字符串哈希到桶，用桶编号作为shingle。</p>
+<p>也可基于词取shingle。例如，每个无意义词（列表维护）后面3个词作为一个3-shingle。</p>
+<h2 id="LSH算法-Locality-Sensitive-Hashing"><a href="#LSH算法-Locality-Sensitive-Hashing" class="headerlink" title="LSH算法(Locality-Sensitive Hashing)"></a>LSH算法(Locality-Sensitive Hashing)</h2><p>局部敏感哈希的基本思想：在高维数据空间中的两个相邻的数据被映射到低维数据空间中后，将会有很大的概率任然相邻；而原本不相邻的两个数据，在低维空间中也将有很大的概率不相邻。通过这样一映射，我们可以在低维数据空间来寻找相邻的数据点，避免在高维数据空间中寻找，因为在高维空间中会很耗时。有这样性质的哈希映射称为是局部敏感的。</p>
+<p>LSH在此处的做法是，将所有的shingle运行局部敏感的哈希映射（假设映射到0或1），然后进行$n$次随机置换。统计每个置换的Signiture Matrix中第一个1的位置，从而得到一个长度为$n$的有序数对。对比两个目标的这一有序数对的汉明距离，其与$n$的比值即可估计相似度。即</p>
+<script type="math/tex; mode=display">P(\text{minHash}(A)=\text{minHash}(B))=\text{SIM}(A,B)</script><h1 id="第4章-数据流挖掘"><a href="#第4章-数据流挖掘" class="headerlink" title="第4章 数据流挖掘"></a>第4章 数据流挖掘</h1><h2 id="Bloom-过滤器"><a href="#Bloom-过滤器" class="headerlink" title="Bloom 过滤器"></a>Bloom 过滤器</h2><p>一个 Bloom 过滤器由以下几部分组成：</p>
+<ol>
+<li>$n$个位组成的桶，每个位的初始值都为0</li>
+<li>一系列哈希函数$h_1,h_2,\cdots,h_n$组成的集合，将键值映射到桶中的一个位上</li>
+<li>一系列键值组成的集合$S$</li>
+</ol>
+<p>Bloom 过滤器的目的是让所有键值在$S$中的元素通过，而阻挡大部分键值不在$S$中的元素。对$S$中每个元素运行哈希函数，将被映射到过的所有桶均设为1。当键值为$K$的元素到达时，计算$h_1(k),h_2(k),\cdots,h_n(k)$。只有当对应的位全为1时，允许其通过。</p>
+<h2 id="独立元素数目统计"><a href="#独立元素数目统计" class="headerlink" title="独立元素数目统计"></a>独立元素数目统计</h2><p>对于任意一个流元素$a$运行哈希函数$h$时，位串$h(a)$的的尾部将以一些0结束，也可能没有0。假设流中目前所有已有元素$a$的最大<strong>尾长(tail length)</strong>为$R$，则由<strong>FM算法(Flajolet-Martin Algorithm)</strong>，独立元素的数目大约为$2^R$个。</p>
+<h2 id="窗口内的计数问题"><a href="#窗口内的计数问题" class="headerlink" title="窗口内的计数问题"></a>窗口内的计数问题</h2><p>DGIM算法能够用$O(\log^2N)$位来表示大小为$N$的窗口。遵循以下规则：</p>
+<ul>
+<li>桶最右的位置上总为1</li>
+<li>每个1都在某个桶中</li>
+<li>一个位置只能属于一个桶</li>
+<li>桶的大小从最小一直变化到某个最大值，相同大小的桶不超过两个</li>
+<li>所有桶的大小是2的幂</li>
+<li>从右到左桶的大小不会减小</li>
+</ul>
+<p>桶最右的位置为桶的时间戳。维护桶时，如果当前位为0，无需动作。</p>
+<p>如果当前位为1，则</p>
+<ol>
+<li>创建一个size为1的bucket，设置其时间戳。</li>
+<li>如果已有三个size为1的bucket，则将其中最早的两个bucket合并为一个size为2的bucket，将这两个bucket中出现比较晚的的时间戳作为新bucket的时间戳。</li>
+<li>如果已有三个size为2的bucket，则将其中最早的两个bucket合并为一个size为4的bucket，如此更新下去。</li>
+<li>如果时间戳早于窗口，则将其删除。</li>
+</ol>
+<h1 id="第5章-链接分析的-PageRank-算法"><a href="#第5章-链接分析的-PageRank-算法" class="headerlink" title="第5章 链接分析的 PageRank 算法"></a>第5章 链接分析的 PageRank 算法</h1><p>Web可以想象成一个有向图，若网页$p_1$到$p_2$之间存在一条或者多条链接，则$p_1$到$p_2$有一条有向边。可以根据这样一张有向图定义一个Web<strong>转移矩阵(transition matrix)</strong>。</p>
+<p>从一个节点开始，随机冲浪者访问图中节点的过程是一个<strong>马尔可夫过程(Markov process)</strong>。因此PageRank的基本公式为</p>
+<script type="math/tex; mode=display">\vec{v'}=\vec M\cdot\vec v</script><p>为防止随机冲浪者陷入循环，我们假设随机冲浪者按照Web有向图的出链前进的概率略小于1（也就是“抽税”，允许冲浪者小概率随机跳转到全图任意一个网页）。我们设这一恒定的略小于1的概率为一个常数$\beta$。因此迭代的公式变成了</p>
+<script type="math/tex; mode=display">\vec{v'}=\beta\vec M\cdot\vec v+(1-\beta)\vec e/n</script><p>其中$n$是网页的总数。经过有限次迭代，便可算出每个Page的Rank。</p>
+<h1 id="第6章-频繁项集"><a href="#第6章-频繁项集" class="headerlink" title="第6章 频繁项集"></a>第6章 频繁项集</h1><h2 id="购物篮模型与-A-Priori"><a href="#购物篮模型与-A-Priori" class="headerlink" title="购物篮模型与 A-Priori"></a>购物篮模型与 A-Priori</h2><p><strong>购物篮模型(market-basket model)</strong> 是用于描述两类对象之间一种常见形式的多对多关系。每个购物篮(basket)是由多个项(item)组成的项集(itemset)。</p>
+<p>直观上看，一个在多个购物篮中出现的项集为“频繁”项集。</p>
+<ul>
+<li>$s:=$ 支持度阈值(support threshold)</li>
+<li>项集$I$的支持度(support) $:=$ 包含$I$为子集的购物篮数目</li>
+<li>$I$是频繁项集(frequent itemset) $:=I$ 的支持度不小于$s$。</li>
+</ul>
+<p>频繁项集的抽取结果往往采用if-then的形式来表示，这些形如$I\rightarrow j$的规则被称为<strong>关联规则(association rule)</strong>，如果$I$中所有项出现在某个购物篮的话，那么$j$“有可能”页出现在这一购物篮。</p>
+<p>关联规则$I\rightarrow j$的<strong>可信度(confidence)</strong>等于集合$I\cap\{j\}$的支持度与$I$的支持度的比值。因此我们可以使用A-Priori算法来检索频繁项对。</p>
+<ol>
+<li>建立两张表，第一张表将项的名称转化为$1$到$n$之间的整数。第二张表记录第$i$个项的出现次数。每次读取购物篮时，根据第一张表将第二张表相应角标的数组元素$+1$。</li>
+<li>第一遍扫描后，我们检查所有项的计数值，以确定哪些项构成单元素频繁项集。只给频繁项重新编号，编号范围时$1$到$m$。</li>
+<li>在第二遍扫描中，我们对两个频繁项组成的所有项对计数（由于项集是单调的，不可能遗落频繁项对）。<ul>
+<li>对每个购物篮，在频繁项集表中检查哪些是频繁的，</li>
+<li>然后通过循环生成所有频繁项对，对于每个频繁项对，在存储计数值的数据结构中在相应的计数值上$+1$。</li>
+<li>在第二遍扫描结束时，检查计数值结构以确定哪些项对为频繁项对。</li>
+</ul>
+</li>
+</ol>
+<p>项集具有<strong>单调性(monotonicity)</strong>，如果项集$I$是频繁的，那么其所有子集都是频繁的。</p>
+<h2 id="PCY算法"><a href="#PCY算法" class="headerlink" title="PCY算法"></a>PCY算法</h2><p>PCY算法是A-Priori的改进。</p>
+<p>在进行第一次扫描时，另外将所有1-项集组成的2-项集哈希到桶中。</p>
+<p>进行第二次扫描时，每个候选项集不但要满足是频繁项集的子集，还要满足这一2-项集在第一次扫描时被哈希到了一个频繁桶中（桶中元素的计数大于一给定阈值）。</p>
+<h2 id="SON算法"><a href="#SON算法" class="headerlink" title="SON算法"></a>SON算法</h2><p>SON算法应用两次Map-Reduce。</p>
+<p>第一个<code>Map</code>函数发现分配到的购物篮子集中的频繁项集。如果子集长度占输入文件比例为$p$，则这一步的支持度阈值从$s$降为$ps$。输出为一个$(F,1)$组合，其中$F$是一个频繁项集。</p>
+<p>第一个<code>Reduce</code>函数函数出现一次或多次的键。即，生成<code>候选项集</code>。</p>
+<p>第二个<code>Map</code>函数接收<code>候选项集</code>的所有输出和输入文件的一部分。每个<code>Map</code>计算候选项集在当前的购物篮数据集上的出现次数。输出$(C,v)$，其中$C$是一个候选集（不是频繁项集！），$v$是$C$在这一部分上的支持度。</p>
+<p>第二个<code>Reduce</code>函数将$C$看成键，对$v$求和。最后，输出全部支持度高于$s$的项集。</p>
+<h1 id="第7章-聚类"><a href="#第7章-聚类" class="headerlink" title="第7章 聚类"></a>第7章 聚类</h1><h2 id="两种聚类方法"><a href="#两种聚类方法" class="headerlink" title="两种聚类方法"></a>两种聚类方法</h2><p><strong>层次(hierarchical)</strong> 或 <strong>凝聚式(agglomerative)</strong> 算法。一开始将每个点都看成一个 <strong>簇(cluster)</strong> 。簇与簇按照 <strong>接近度(closeness)</strong> 来组合。当进一步的组合会导致非期望结果时，组合结束（例如，达到给定的簇的数目，或者簇内点分散的区域过大）。</p>
+<p><strong>点分配(point assignment)</strong> 过程。按照某个顺序依次考虑每个点，并将它分到最适合的簇中。</p>
+<h2 id="层次聚类"><a href="#层次聚类" class="headerlink" title="层次聚类"></a>层次聚类</h2><h4 id="欧氏空间下的层次聚类"><a href="#欧氏空间下的层次聚类" class="headerlink" title="欧氏空间下的层次聚类"></a>欧氏空间下的层次聚类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">WHILE it is not time to stop DO</span><br><span class="line">    pick the best two clusters to merge;</span><br><span class="line">    combine those two clusters into one cluster;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+<h3 id="效率更高的算法实现方式"><a href="#效率更高的算法实现方式" class="headerlink" title="效率更高的算法实现方式"></a>效率更高的算法实现方式</h3><ol>
+<li>第一步，计算所有点对的距离，将其放到一个优先队列中</li>
+<li>合并$C$和$D$时，删除队列中包含其中一个簇的所有元素。由于最多删除$2n$次，删除的时间开销为$O(n\log n)$。</li>
+<li>计算新簇和所有剩余簇的所有距离。由于最多插入$n$次，计算过程的时间开销同样是$O(n\log n)$。</li>
+</ol>
+<p>由于最后两步最多执行n次，故总时间开销为$O(n^2\log n)$。</p>
+<h3 id="非欧空间下的层次聚类"><a href="#非欧空间下的层次聚类" class="headerlink" title="非欧空间下的层次聚类"></a>非欧空间下的层次聚类</h3><p>处于非欧空间时，我们必须要使用 Jaccard 距离等进行距离计算。</p>
+<p>有几种常用的选择中心点的算法，它们分别使得选出该点到簇中其他所有点之距离的如下数值最小：</p>
+<ol>
+<li>求和</li>
+<li>最大值</li>
+<li>平方和</li>
+</ol>
+<h2 id="k-means-算法"><a href="#k-means-算法" class="headerlink" title="$k$-means 算法"></a>$k$-means 算法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Initially choose k points that are likely to be in different clusters;</span><br><span class="line">Make these points the centroids of their clusters;</span><br><span class="line">FOR each remaining point p DO</span><br><span class="line">    Find the centroid to which p is closest;</span><br><span class="line">    Add p to the cluster of that centroid;</span><br><span class="line">    Adjust the centroid of that cluster to account for p;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+<h3 id="簇初始化"><a href="#簇初始化" class="headerlink" title="簇初始化"></a>簇初始化</h3><p>簇初始化有两种做法。</p>
+<ol>
+<li>选择彼此距离尽可能远的点</li>
+<li>对某个样本数据先进行聚类，因此输出$k$个簇。在每个簇中选择一个点，例如离簇质心最近的那个点。</li>
+</ol>
+<p>对于第1种做法，最常见的实现方案是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Pick the first point at random;</span><br><span class="line">WHILE there are fewer than k points DO</span><br><span class="line">    Add the point whose minimum distance</span><br><span class="line">        from the selected points</span><br><span class="line">        is as large as possible;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+<h2 id="BFR算法"><a href="#BFR算法" class="headerlink" title="BFR算法"></a>BFR算法</h2><p>假设簇满足以质心为期望的正态分布。按上述方式选择初始的k个点。</p>
+<p>之后，数据文件中的点按照组块方式读入。</p>
+<p>目前内存中有：</p>
+<ol>
+<li>组块</li>
+<li>废弃集</li>
+<li>压缩集</li>
+<li>留存集</li>
+</ol>
+<p>下面开始数据处理。</p>
+<ol>
+<li>首先，充分接近某个簇质心的点会被加到该簇中。</li>
+<li>对于不充分接近簇质心的点，同留存集中的点一起聚类。</li>
+<li>压缩集迷你簇和新的迷你簇（迷你簇含有互相接近，但是不接近于任何簇的点）之间可以进行合并。</li>
+<li>不在留存集中的点，也就是一个簇或者迷你簇中的点，会和分配结果一起写到二级存储上。</li>
+</ol>
+<p>$d$维点的压缩集和废弃集中拥有$2d+1$个值，包含$N-SUM-SUMSQ$：</p>
+<ol>
+<li>$N:=$ 所表示的点数$N$</li>
+<li>$SUM:=$ 所有点在每一维度的分量之和</li>
+<li>$SUMSQ:=$ 所有点在每一维度的分量平方和</li>
+</ol>
+<h2 id="CURE算法"><a href="#CURE算法" class="headerlink" title="CURE算法"></a>CURE算法</h2><p>该算法假定在欧氏空间下，对簇的形状没有任何假设，不需要满足正态分布，可以拥有S型甚至环形。</p>
+<h3 id="CURE算法的初始化"><a href="#CURE算法的初始化" class="headerlink" title="CURE算法的初始化"></a>CURE算法的初始化</h3><ol>
+<li>抽取一部分数据进行聚类（建议使用层次聚类）</li>
+<li>从每一个簇选择一小部分点集作为<strong>簇的代表点</strong>。选择时使用簇初始化的第1种做法。</li>
+<li>对每个代表点移动一段距离，该距离是其位置到簇质心距离乘以一个固定比例，例如，20%。</li>
+</ol>
+<h3 id="CURE算法的完成"><a href="#CURE算法的完成" class="headerlink" title="CURE算法的完成"></a>CURE算法的完成</h3><p>下一步是，当两个簇的某对代表点之间足够接近，那么就将这两个簇进行合并。用户可以定义“接近的簇”。该合并过程可以重复。</p>
+<h1 id="第8章-Web广告"><a href="#第8章-Web广告" class="headerlink" title="第8章 Web广告"></a>第8章 Web广告</h1><h2 id="在线算法与贪心算法"><a href="#在线算法与贪心算法" class="headerlink" title="在线算法与贪心算法"></a>在线算法与贪心算法</h2><p>Web广告相关算法是在线(on-line)算法，在算法必须做出某些决定之前并不能获得全部的数据。</p>
+<p>很多在线算法都属于贪心算法(greedy algorithm)。Web广告的一个明显的贪心算法为，将查询分配给还有预算的出价更高的广告商。</p>
+<p>对于同一问题，在线算法不如最佳的离线算法效率那么好。如果存在一个小于1的常数$c$表示某一个具体的在线算法的结果至少是最优离线算法结果的$c$倍，就说其为在线算法的<strong>竞争率(competitive ratio)</strong>。</p>
+<h2 id="广告匹配问题"><a href="#广告匹配问题" class="headerlink" title="广告匹配问题"></a>广告匹配问题</h2><p>假定给定一个二部图。一个 <strong>匹配(matching)</strong> 指二部图的子边集，使得原二部图只保留这一子集包含的边时，每一个节点的度不超过1。</p>
+<p>如果某一个匹配中所有的节点都有边连接，那么这一匹配是 <strong>完美(perfect)</strong> 的。图中所有匹配中最大的那个匹配称为最大(maximal)匹配。</p>
+<h3 id="最大匹配贪心算法"><a href="#最大匹配贪心算法" class="headerlink" title="最大匹配贪心算法"></a>最大匹配贪心算法</h3><p>最大匹配贪心算法的工作流程如下。我们可以按照任意次序来考虑边。当考虑边$(x,y)$时，如果$x$和$y$都不是已有匹配中边的端点，则将其加入，否则跳过。这一算法的竞争率为$1/2$。</p>
+<h2 id="Adwords问题"><a href="#Adwords问题" class="headerlink" title="Adwords问题"></a>Adwords问题</h2><ul>
+<li>给定下列信息：<ol>
+<li>广告商的投标价格</li>
+<li>每个广告商-查询的点击率</li>
+<li>每个广告商的预算</li>
+<li>每个搜索查询所显示的广告数目上限</li>
+</ol>
+</li>
+<li>对每个搜索查询，算法给出一系列广告商的应答结果的集合，满足：<ol>
+<li>集合大小不超过广告数目上限</li>
+<li>每个广告商都对本条查询出了价</li>
+<li>每个广告商必须有足够预算来付费</li>
+</ol>
+</li>
+</ul>
+<p>依次广告选择的收益(revenue)是每个选出广告的价值之和，其中每条广告的价值(value)等于对应查询的出价和广告点击率的乘积。</p>
+<h3 id="Balance算法"><a href="#Balance算法" class="headerlink" title="Balance算法"></a>Balance算法</h3><p>Balance算法是Adwords问题的贪心算法的改进版本。当广告商出价只能是0和1时，它将查询分配给出价最高且剩余预算最多的广告商。如果多个广告商的剩余预算相等，那么可以随意地选择任意一个。</p>
+<p>当只有两个广告商时，Balance算法的竞争率为$3/4$。然而随着广告商数目的不断增长，竞争率会趋于$1-1/e$。</p>
+<h3 id="Balance-算法的一般化"><a href="#Balance-算法的一般化" class="headerlink" title="*Balance 算法的一般化"></a>*Balance 算法的一般化</h3><p>为了使Balance算法适用于更一般的情况，需要做如下修改：</p>
+<ul>
+<li>选择时，必须要倾向于出价高的广告</li>
+<li>对剩余预算的处理不能那么绝对。这是为了规避风险，使任意广告商的剩余预算不会太多。</li>
+</ul>
+<p>假设某个查询$q$到达，广告商$A_i$对$q$的出价为$x_i$（可以为0）。另外假定$A_i$预算中的结余比率占$f_i$。令$\Psi_i=x_i(1-e^{-f_i})$。那么将$q$分配给具有最大$\Psi_i$值的广告商$A_i$。</p>
+<h1 id="第12章-大规模机器学习"><a href="#第12章-大规模机器学习" class="headerlink" title="第12章 大规模机器学习"></a>第12章 大规模机器学习</h1><h2 id="机器学习模型"><a href="#机器学习模型" class="headerlink" title="机器学习模型"></a>机器学习模型</h2><p>应用机器学习算法的数据称为训练集。训练集由一系列$(x,y)$对组成，每个$(x,y)$称为一个<strong>训练样例(training example)</strong>，其中：</p>
+<ul>
+<li>$x$是一个<strong>特征向量(feature vector)</strong></li>
+<li>$y$是一个<strong>标签(label)</strong></li>
+</ul>
+<p>ML过程的目标是寻找一个函数$y=f(x)$来预测对于每个$x$的最佳$y$值。$y$的常见重要类型：</p>
+<ul>
+<li>$y$是实数</li>
+<li>$y$是布尔值，或$+1$和$-1$ <strong>$\Rightarrow$ 二类分类(binary classification)</strong> </li>
+<li>$y$是有穷集合中的元素 <strong>$\Rightarrow$ 多类分类(multiclass classification)</strong> </li>
+</ul>
+<h3 id="主要的机器学习算法类别："><a href="#主要的机器学习算法类别：" class="headerlink" title="主要的机器学习算法类别："></a>主要的机器学习算法类别：</h3><ul>
+<li>决策树(decision tree)，类似于搜索树</li>
+<li>感知机(preception)，对向量中各分量加权求和，若和大于给定阈值$\theta$则输出$+1$。适用于二类分类问题</li>
+<li>神经网络(neural net)，感知机组成的网络。</li>
+<li>基于实例的学习(instance-based learning)，使用整个训练集作为$f$。</li>
+</ul>
+<h2 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h2><p>为训练感知机，我们来考察一个训练集并试图寻找一个权重向量$\vec{w}$和阈值$\theta$。一开始假定阈值为0，在此基础上针对未知阈值应用以下算法，使其收敛到一个将训练集中所有正例和负例分开的超平面：</p>
+<ol>
+<li>将权重向量$\vec{w}$的所有元素初始化为0；</li>
+<li>选择一个很小的正实数$\eta$作为<strong>学习率参数(learning parameter)</strong>。$\eta$的选择会影响感知机的收敛。</li>
+<li>依次考虑每个训练样例$t=(\vec{x},y)$:<ul>
+<li>令$y’=\vec{w}\cdot\vec{x}$;</li>
+<li>如果$y$和$y’$的符号相同，则什么都不做，$t$已正确分类；</li>
+<li>如果$y$和$y’$的符号不同或$y’=0$，那么将$\vec{w}$替换成$\vec w+\eta y\vec x$。也就是说，沿$\vec x$方向微调$\vec w$。</li>
+</ul>
+</li>
+</ol>
+<h4 id="算法终止的常见方法："><a href="#算法终止的常见方法：" class="headerlink" title="*算法终止的常见方法："></a>*算法终止的常见方法：</h4><ol>
+<li>固定次数时终止</li>
+<li>分错类的数据点的数目不再变化时终止</li>
+<li>抽样，在样本上执行2</li>
+<li>降低训练率，例如在第$t$次迭代中将训练率$\eta$变为$\eta_0/(1+ct)$，其中c是很小的常数。</li>
+</ol>
+<h3 id="Winnow-算法"><a href="#Winnow-算法" class="headerlink" title="Winnow 算法"></a>Winnow 算法</h3><p>Winnow假定所有的特征向量都由0和1组成，类别用$+1$和$-1$表示。Winnow算法的权重向量都是正值。</p>
+<p>Winnow算法的基本思想是，只降低或增加分错类的数据点中与正确类之符号相同或相反的分量的权重。</p>
+<p>例如，以2和1/2作为因子分别代表提高权重和降低权重的情况：</p>
+<ol>
+<li>如果$\vec w \cdot \vec x &gt; \theta$且$y=+1$，或者$\vec w \cdot \vec x &lt; \theta$且$y=-1$，那么该样本被正确分类，此时对$\vec w$不做任何更改。</li>
+<li>如果$\vec w \cdot \vec x \leq \theta$但$y=+1$，那么$\vec x$中为1的分量所对应的$\vec w$的权重太低。此时，对这些权重进行加倍操作。也就是说，如果$x_i=1$，那么令$w_i:=2w_i$。</li>
+<li>如果$\vec w \cdot \vec x \geq \theta$但$y=-1$，那么$\vec x$中为1的分量所对应的$\vec w$的权重太高。此时，对这些权重进行减半操作。也就是说，如果$x_i=1$，那么令$w_i:=w_i/2$。</li>
+</ol>
+<h4 id="允许阈值变化的情况："><a href="#允许阈值变化的情况：" class="headerlink" title="允许阈值变化的情况："></a>允许阈值变化的情况：</h4><ul>
+<li>将权重向量$\vec w$定义为 <script type="math/tex">\vec w'=[w_1,w_2,\cdots,w_d,\theta]</script></li>
+<li>将特征向量$\vec x$ 定义为 <script type="math/tex">\vec x'=[x_1,x_2,\cdots,x_d,-1]</script></li>
+</ul>
+<p>对于新的训练样本和权重向量，可以认为阈值为0并运行基本的感知机算法。</p>
+<p>或者可以认为是 Winnow 算法。只不过在其它权重需要翻倍的时候，阈值对应的权重除以2；其他权重需要除以2的时候，阈值对应的权重要翻倍。</p>
+<h2 id="支持向量机"><a href="#支持向量机" class="headerlink" title="*支持向量机"></a>*支持向量机</h2><p><strong>支持向量机(Support-Vector Machine, SVM)</strong> 的目标是选择一个超平面$\vec w\cdot\vec x+b=0$，使得该超平面到训练集中任意点距离$\gamma$的最小值最大。</p>
+<p>换句话说，就是给定训练集$(\vec{x_1},y_1),(\vec{x_2},y_2),\cdots,(\vec{x_n},y_n)$，对于所有$i=1,2,\cdots,n$，在若狭约束条件下通过变化$\vec w$和$b$最小化$||\vec w||$: <script type="math/tex">y_i(\vec w \cdot \vec x+b)\geq1</script></p>
+<p>由于$\gamma=1/||\vec w||$，最小化$||\vec w||$就是最大化$\gamma$。</p>
+
           
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/data-mining-revise/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -828,19 +915,6 @@
           
             
             
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/posts/stable-match/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/posts/stable-match/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -867,22 +941,42 @@
       
         
           
-            <p>
-              问题描述稳定婚姻问题是说，在n男n女之间，根据每个人对异性对象的喜好程度安排男女结婚，使得对于任意一位男士$M_1$（其配偶为$W_1$）和一位女士$W_2$（其配偶为$M_2$），以下两种情况不会同时发生：
+            <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>稳定婚姻问题是说，在n男n女之间，根据每个人对异性对象的喜好程度安排男女结婚，使得对于任意一位男士$M_1$（其配偶为$W_1$）和一位女士$W_2$（其配偶为$M_2$），<strong>以下两种情况不会同时发生：</strong></p>
+<ul>
+<li><strong>$M_1$比起$W_1$更喜欢$W_2$</strong></li>
+<li><strong>$W_2$比起$M_2$更喜欢$M_1$</strong></li>
+</ul>
+<p>也就是说，任意两对情侣间，一对中的男士和另一对中的女士不得互相更喜欢对方（否则他们就会私奔）。我们称这种情形为【<strong>不稳定情形</strong>】。</p>
+<p>1962年，美国数学家 David Gale 和 Lloyd Shapley 发明了一种寻找稳定婚姻的策略。不管男女各有多少人，也不管他们的偏好如何，应用这种策略后总能得到一个稳定的搭配。换句话说，他们证明了稳定的婚姻搭配总是存在的。</p>
+<p>按照 Gale-Shapley 算法，第一步是在猪蹄子堆里拎出来一个单身男人$m$（比如我）。之后，让这个男士按照他的喜好列表一个一个地跟女士求婚。对于每一个女士$w$，均存在三种情况：</p>
+<ol>
+<li>她没有npy，即没人跟她求过婚；</li>
+<li>她的npy是$m’$，但她喜欢$m$胜过$m’$；</li>
+<li>她的npy是$m’$，且她更喜欢$m’$。</li>
+</ol>
+<p>对于情况1，很明显我们应该让$(m,w)$成为一对新人。<br>对于情况2，我们要先无情地拆散$(m’,w)$，然后才能促成$(m,w)$。这时，$m’$失去了配偶，失落地回到猪蹄子堆里找个地方坐下了。<br>对于情况3，$m$只能愤恨地吐口唾沫，然后接着跟列表的其他女士求婚。</p>
+<p>对于男士来说，每次求婚的对象只能越来越糟，而女士的配偶却会越来越好。对于上述【<strong>不稳定情形</strong>】中提到的两对情侣，$M_1$一定曾经向$W_2$求过婚，而$W_2$拒绝了他。这说明$W_2$已经与比$M_1$更好的大猪蹄子成对了！这意味着【<strong>不稳定情形</strong>】不可能存在。</p>
+<p>可以证明，这样的过程是有穷尽的。由于告白次数随着算法运行是严格单增的，而这一指标的上界为（男士数$\times$女士数）。稳定婚姻问题需要满足男士数至少多于女士数（在一般的问题中，这两个数量是相等的），否则无法形成一一映射的关系。</p>
+<p>以上就是稳定婚姻问题的 Gale-Shapley 算法。</p>
+<h2 id="G-S-算法的伪代码实现1"><a href="#G-S-算法的伪代码实现1" class="headerlink" title="G-S 算法的伪代码实现1"></a>G-S 算法的伪代码实现<sup><a href="#fn_1" id="reffn_1">1</a></sup></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function stableMatching &#123;</span><br><span class="line">    Initialize all m ∈ M and w ∈ W to free</span><br><span class="line">    while ∃ free man m who still has a woman w to propose to &#123;</span><br><span class="line">        w = first woman on m’s list to whom m has not yet proposed</span><br><span class="line">        if w is free</span><br><span class="line">            (m, w) become engaged</span><br><span class="line">        else some pair (m&apos;, w) already exists</span><br><span class="line">            if w prefers m to m&apos;</span><br><span class="line">                m&apos; becomes free</span><br><span class="line">            (m, w) become engaged </span><br><span class="line">            else</span><br><span class="line">                (m&apos;, w) remain engaged</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="一道例题——寻找学助2"><a href="#一道例题——寻找学助2" class="headerlink" title="一道例题——寻找学助2"></a>一道例题——寻找学助<sup><a href="#fn_2" id="reffn_2">2</a></sup></h2><p>现在有$N$个学助和$N$个学生。每个学助都要一对一辅导一个学生。但是，每个学助都有一个最想帮助的学生排名表，每个学生也有一个最想找的学助排名表。</p>
+<p>现在，qhurc 想通过 Stable Matching 解决这个问题，他跑来向你寻求帮助。写一个程序来输出对应关系。</p>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p>第一行包含一个整数$N$，这是学生（和学助）的个数。<br>第二行包含$N$个字符串，以空格分隔。第$i$个字符串代表第$i$个学助的名字。<br>第三行包含$N$个字符串，以空格分隔。第$i$个字符串代表第$i$个学生的名字。<br>之后$N$行中，每一行包含$N$个字符串 $S_1,\ldots,S_N$ 。第$i$行表示第$i$个<strong>助教</strong>的<strong>学生</strong>喜好列表。这个助教相对于 $S_{i+1},\ldots,S_N$ 来说更喜欢<strong>学生</strong>$S_i$。<br>之后$N$行中，每一行包含$N$个字符串 $S_1,\ldots,S_N$ 。第$i$行表示第$i$个<strong>学生</strong>的<strong>助教</strong>喜好列表。这个学生相对于 $S_{i+1},\ldots,S_N$ 来说更喜欢<strong>助教</strong>$S_i$。<br>每个字符串的长度均小于$10$。</p>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p>输出$N$个字符串，以空格分隔。第$i$个字符串代表分配给第$i$个学助的<strong>学生的名字</strong>。</p>
+<h3 id="样例输入1"><a href="#样例输入1" class="headerlink" title="样例输入1"></a>样例输入1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">adam bale campbell</span><br><span class="line">alice bob calvin</span><br><span class="line">bob calvin alice</span><br><span class="line">calvin bob alice</span><br><span class="line">bob alice calvin</span><br><span class="line">adam bale campbell</span><br><span class="line">adam campbell bale</span><br><span class="line">bale adam campbell</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出1"><a href="#样例输出1" class="headerlink" title="样例输出1"></a>样例输出1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bob calvin alice</span><br></pre></td></tr></table></figure>
+<h3 id="样例输入2"><a href="#样例输入2" class="headerlink" title="样例输入2"></a>样例输入2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">adam bale campbell daisy eddy</span><br><span class="line">alice bob calvin david emily</span><br><span class="line">david calvin alice emily bob</span><br><span class="line">bob alice calvin david emily</span><br><span class="line">alice emily david calvin bob</span><br><span class="line">alice calvin david bob emily</span><br><span class="line">alice bob calvin david emily</span><br><span class="line">campbell bale adam daisy eddy</span><br><span class="line">eddy daisy bale adam campbell</span><br><span class="line">daisy bale adam campbell eddy</span><br><span class="line">campbell daisy adam eddy bale</span><br><span class="line">bale adam eddy campbell daisy</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出2"><a href="#样例输出2" class="headerlink" title="样例输出2"></a>样例输出2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">david emily alice calvin bob</span><br></pre></td></tr></table></figure>
+<h3 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h3><p>时间限制：$1s/$测试样例<br>内存限制：$256\text{MB}$<br>100% 的测试样例中，$N\leq1000$。</p>
+<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; saTag;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="built_in">string</span> tmp;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; tmp;</span><br><span class="line">        saTag.insert(pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt;(tmp, i));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; stuTag;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; stuName;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="built_in">string</span> tmp;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; tmp;</span><br><span class="line">        stuTag.insert(pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt;(tmp, i));</span><br><span class="line">        stuName.push_back(tmp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt;::iterator loc;</span><br><span class="line">    <span class="keyword">int</span> saFav[n][n];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="built_in">string</span> tmp;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; tmp;</span><br><span class="line">            saFav[i][j] = stuTag[tmp];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> stuFav[n][n];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="built_in">string</span> tmp;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; tmp;</span><br><span class="line">            stuFav[i][j] = saTag[tmp];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> inverse[n][n];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            inverse[i][stuFav[i][j]] = j;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> sa[n], stu[n];</span><br><span class="line">    <span class="built_in">memset</span>(sa, <span class="number">-1</span>, <span class="keyword">sizeof</span>(sa));</span><br><span class="line">    <span class="built_in">memset</span>(stu, <span class="number">-1</span>, <span class="keyword">sizeof</span>(stu));</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; <span class="built_in">free</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="built_in">free</span>.push(i);</span><br><span class="line">    <span class="keyword">int</span> count[n];</span><br><span class="line">    <span class="built_in">memset</span>(count, <span class="number">0</span>, <span class="keyword">sizeof</span>(count));</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">free</span>.empty()) &#123;</span><br><span class="line">        <span class="keyword">int</span> tmp = <span class="built_in">free</span>.front();</span><br><span class="line">        <span class="built_in">free</span>.pop();</span><br><span class="line">        <span class="keyword">for</span> (; count[tmp] &lt;= n; count[tmp]++) &#123;</span><br><span class="line">            <span class="keyword">int</span> targetStu = saFav[tmp][count[tmp]];</span><br><span class="line">            <span class="keyword">if</span> (sa[targetStu] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                stu[tmp] = targetStu;</span><br><span class="line">                sa[targetStu] = tmp;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (inverse[targetStu][sa[targetStu]]</span><br><span class="line">                       &gt; inverse[targetStu][tmp]) &#123;</span><br><span class="line">                <span class="built_in">free</span>.push(sa[targetStu]);</span><br><span class="line">                stu[tmp] = targetStu;</span><br><span class="line">                sa[targetStu] = tmp;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s%s"</span>, stuName[stu[i]].c_str(), i == n - <span class="number">1</span> ? <span class="string">""</span> : <span class="string">" "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote id="fn_1">
+<sup>1</sup>. 来自<a href="https://en.wikipedia.org/wiki/Stable_marriage_problem" target="_blank" rel="noopener">维基百科</a>。<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. 题目来自 SUSTech ADOJ。<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+</blockquote>
 
-$M_1$比起$W_1$更喜欢$W_2$
-$W_2$比起$M_2$更
-              ...
-            </p>
-          <!--noindex-->
           
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/stable-match/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -1027,19 +1121,6 @@ $W_2$比起$M_2$更
           
             
             
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/posts/qhurc-cloud/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/posts/qhurc-cloud/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1066,20 +1147,9 @@ $W_2$比起$M_2$更
       
         
           
-            <p>
-              位于 https://cloud.qhurc.com 的 ownCloud 服务已经启动，支持 SSL/IPv6 。
+            <p>位于 <a href="https://cloud.qhurc.com" target="_blank" rel="noopener">https://cloud.qhurc.com</a> 的 ownCloud 服务已经启动，支持 SSL/IPv6 。</p>
 
-              
-            </p>
-          <!--noindex-->
           
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/qhurc-cloud/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -1196,7 +1266,7 @@ $W_2$比起$M_2$更
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-27 05:23:43" itemprop="dateModified" datetime="2019-07-27T05:23:43+08:00">2019-07-27</time>
+                <time title="修改时间：2019-08-02 04:01:51" itemprop="dateModified" datetime="2019-08-02T04:01:51+08:00">2019-08-02</time>
               
             
           </span>
@@ -1213,7 +1283,7 @@ $W_2$比起$M_2$更
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/法克/" itemprop="url" rel="index"><span itemprop="name">法克</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ffuck/" itemprop="url" rel="index"><span itemprop="name">ffuck</span></a></span>
 
                 
                 
@@ -1223,19 +1293,6 @@ $W_2$比起$M_2$更
 
           
             
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/posts/supported-ipv6/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/posts/supported-ipv6/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1263,22 +1320,13 @@ $W_2$比起$M_2$更
       
         
           
-            <p>
-              刚刚在 DNS 中添加了域名的 AAAA 解析，现在已经可以通过 IPv6 来访问本站了。如果你的网络环境支持 IPv6，这一切换是自动的。
+            <p>刚刚在 DNS 中添加了域名的 AAAA 解析，现在已经可以通过 IPv6 来访问本站了。如果你的网络环境支持 IPv6，这一切换是自动的。</p>
+<p><img src="/images/ipv6-1024x391.png" alt></p>
+<p>IPv6 supported!</p>
+<p>此外，我开放了（没什么用的） 用户注册。不想用自己邮箱的同学也可以来找我申请 @qhurc.com 邮箱，我心情好的话没准会给你开一个。</p>
+<p>以上。还是肝算法lab的一天。</p>
 
-IPv6 supported!
-此外，我开放了（没什么用的） 用户注册。不想用自己邮箱的同学也可以来找我申请 @qhurc.com 邮箱
-              ...
-            </p>
-          <!--noindex-->
           
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/supported-ipv6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -1423,19 +1471,6 @@ IPv6 supported!
           
             
             
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/posts/recommending-baba-is-you/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/posts/recommending-baba-is-you/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1462,20 +1497,22 @@ IPv6 supported!
       
         
           
-            <p>
-              昨天上《想象力入门》课的时候，一位同学在课上做“游戏中的想象力”主题演讲，并举了一个例子： _Baba is You_ 。我当时看到玩法示例就高潮了，课还没下就直接掏钱入库——然后下一节课上（听！课的同时）带着两个小伙伴不亦乐乎地玩了一个半小时（逃
-完全着迷了，今天安利给你们。先
-              ...
-            </p>
-          <!--noindex-->
+            <p>昨天上《想象力入门》课的时候，一位同学在课上做“游戏中的想象力”主题演讲，并举了一个例子： _Baba is You_ 。我当时看到玩法示例就高潮了，课还没下就直接掏钱入库——然后下一节课上（听！课的同时）带着两个小伙伴不亦乐乎地玩了一个半小时（逃</p>
+<p>完全着迷了，今天安利给你们。先看看玩法视频吧：</p>
+<iframe width="540" height="315" src="https://www.youtube.com/embed/U7MJljsoUSo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>这个游戏的内核是，通过推动并重新组合代表游戏规则的“箱子”，来达到修改本关游戏规则的目的，并利用修改规则达成目标：</p>
+<ul>
+<li><p><img src="/images/biy1.gif" alt></p>
+</li>
+<li><p><img src="/images/biy2.gif" alt></p>
+</li>
+<li><p><img src="/images/biy3.gif" alt></p>
+</li>
+</ul>
+<p>游戏本身看起来非常简单。但是，后面的关卡里，随着规则和属性的不断增多，通关方法也不断趋向无厘头……如果你能接受像素风的解迷类游戏，_Baba is You_ 一定不能错过～这款游戏在 Steam 上售价50元（游戏原声碟售价15元），值得入手！Steam 传送门：</p>
+<iframe src="https://store.steampowered.com/widget/736260/" align="middle" frameborder="0" width="646" height="190"></iframe>
           
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/recommending-baba-is-you/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -1620,19 +1657,6 @@ IPv6 supported!
           
             
             
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/posts/nearest-point-pair-3-dim/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/posts/nearest-point-pair-3-dim/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1659,21 +1683,37 @@ IPv6 supported!
       
         
           
-            <p>
-              问题描述给出num个n维点(A11,A12,...,A1n)，(A21,A22,...,A2n)，……，(Am1,Am2,...,Amn)，请找出距离最近的两个点的坐标并按字典序输出。
-输入第1行有两个数num和n，分别代表点的个数和维数。
-之后第2行至第num+1行中，每一行都
-              ...
-            </p>
-          <!--noindex-->
+            <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>给出<code>num</code>个<code>n</code>维点<code>(A11,A12,...,A1n)</code>，<code>(A21,A22,...,A2n)</code>，……，<code>(Am1,Am2,...,Amn)</code>，请找出距离最近的两个点的坐标并按字典序输出。</p>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p>第<code>1</code>行有两个数<code>num</code>和<code>n</code>，分别代表点的个数和维数。</p>
+<p>之后第<code>2</code>行至第<code>num+1</code>行中，每一行都有n个数，代表<code>An</code>在n维坐标系中的坐标。其中<code>num</code>，<code>n</code>，<code>An</code>满足</p>
+<pre><code>1 &lt;= n &lt;= 3, 1 &lt;= num &lt;= 10e5, -10e9 &lt;= An &lt;= 10e9
+</code></pre><h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p>输出最近点对的坐标，每行输出一个点的坐标。保证字典序较前的点先输出。</p>
+<h3 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h3><p>样例输入1</p>
+<pre><code>6 2
+342865007 -691265808
+168900467 -744748163
+-440434063 -184293515
+-691848451 -399926019
+609366198 724389818
+537557125 559390437
+</code></pre><p>样例输出1</p>
+<pre><code>537557125 559390437
+609366198 724389818
+</code></pre><p>样例输入2</p>
+<pre><code>6 3
+-136905867 883290928 667747376
+-160060934 957773808 -251430337
+-144533471 -470375553 701658111
+-929571734 4727839 -831028267
+-837100600 368786495 -752700652
+614613476 -813960031 -838790640
+</code></pre><p>样例输出2</p>
+<pre><code>-929571734 4727839 -831028267
+-837100600 368786495 -752700652
+</code></pre><h3 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h3><p>时间限制1s，内存限制256MB。</p>
+<h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, y = <span class="number">0</span>, z = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">```</span><br><span class="line">node(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> z) &#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;x = x;</span><br><span class="line">    <span class="keyword">this</span>-&gt;y = y;</span><br><span class="line">    <span class="keyword">this</span>-&gt;z = z;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">node() &#123;</span><br><span class="line">    x = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125; p\[<span class="number">100005</span>\];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">mergeRes</span> &#123;</span></span><br><span class="line">    <span class="keyword">double</span> result;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line"></span><br><span class="line">mergeRes() &#123;</span><br><span class="line">    a = b = result = <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> c\[<span class="number">100005</span>\], d\[<span class="number">100005</span>\];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n = <span class="number">1</span>, num;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">x_cmp</span><span class="params">(node a, node b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.x &lt; b.x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">min</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a &lt; b ? a : b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">mergeRes <span class="title">min</span><span class="params">(mergeRes a, mergeRes b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.result &lt; b.result ? a : b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">x_cmp1</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> p\[a\].x &lt; p\[b\].x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">y_cmp</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> p\[a\].y &lt; p\[b\].y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">yz_cmp</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p\[a\].y == p\[b\].y) <span class="keyword">return</span> p\[a\].z &lt; p\[b\].z;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> p\[a\].y &lt; p\[b\].y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">dis</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">pow</span>(<span class="built_in">pow</span>(p\[b\].x - p\[a\].x, <span class="number">2</span>) + <span class="built_in">pow</span>(p\[b\].y - p\[a\].y, <span class="number">2</span>) + <span class="built_in">pow</span>(p\[b\].z - p\[a\].z, <span class="number">2</span>), <span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dis1</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">abs</span>(p\[a\].x - p\[b\].x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> isZero = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">mergeRes <span class="title">merge</span><span class="params">(<span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span> </span>&#123;</span><br><span class="line">    mergeRes res;</span><br><span class="line">    <span class="keyword">int</span> i, j, k, l, cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> tempdis;</span><br><span class="line">    <span class="keyword">if</span> (hi - lo == <span class="number">2</span>) &#123;</span><br><span class="line">        res.result = n == <span class="number">1</span> ? dis1(lo, lo + <span class="number">1</span>) : dis(lo, lo + <span class="number">1</span>);</span><br><span class="line">        res.a = lo;</span><br><span class="line">        res.b = lo + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (hi - lo == <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="keyword">double</span> dis01 = dis(lo, lo + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">double</span> dis02 = dis(lo + <span class="number">1</span>, lo + <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">double</span> dis03 = dis(lo, lo + <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span> (dis01 &lt; dis02 &amp;&amp; dis01 &lt; dis03) &#123;</span><br><span class="line">            res.a = lo;</span><br><span class="line">            res.b = lo + <span class="number">1</span>;</span><br><span class="line">            res.result = dis01;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dis02 &lt; dis01 &amp;&amp; dis02 &lt; dis03) &#123;</span><br><span class="line">            res.a = lo + <span class="number">1</span>;</span><br><span class="line">            res.b = lo + <span class="number">2</span>;</span><br><span class="line">            res.result = dis02;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            res.a = lo;</span><br><span class="line">            res.b = lo + <span class="number">2</span>;</span><br><span class="line">            res.result = dis03;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">double</span> ans;</span><br><span class="line">    mergeRes ans1=merge(lo, mid),ans2=merge(mid, hi);</span><br><span class="line">    <span class="keyword">if</span>(ans1.result&gt;ans2.result) &#123;</span><br><span class="line">        res.result=ans2.result;</span><br><span class="line">        res.a=ans2.a;</span><br><span class="line">        res.b=ans2.b;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res.result=ans1.result;</span><br><span class="line">        res.a=ans1.a;</span><br><span class="line">        res.b=ans1.b;</span><br><span class="line">    &#125;</span><br><span class="line">    ans=res.result;</span><br><span class="line">    <span class="keyword">for</span> (i = lo; i &lt; hi; i++)</span><br><span class="line">        <span class="keyword">if</span> (p\[i\].x &gt; p\[mid\].x - ans &amp;&amp; p\[i\].x &lt; p\[mid\].x + ans) c\[cnt++\] = i;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) sort(c, c + cnt, x_cmp1);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">2</span>) sort(c, c + cnt, y_cmp);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">3</span>) sort(c, c + cnt, yz_cmp);</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; cnt; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (j = i + <span class="number">1</span>; j &lt; cnt; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (p\[c\[j\]\].y - p\[c\[i\]\].y &gt;= ans) <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">if</span> (n &gt; <span class="number">2</span>) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (k = j; k &lt; cnt; k++) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (p\[c\[j\]\].y != p\[c\[k\]\].y) &#123;</span><br><span class="line">                                <span class="comment">//|| p\[c\[k\]\].z - p\[c\[i\]\].z &gt;= ans) &#123;</span></span><br><span class="line">                            j = k - <span class="number">1</span>;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="comment">//if (p\[c\[i\]\].z - p\[c\[k\]\].z &gt;= ans) continue;</span></span><br><span class="line">                        tempdis = dis(c\[i\], c\[k\]);</span><br><span class="line">                        <span class="keyword">if</span> (ans &gt; tempdis) &#123;</span><br><span class="line">                            ans = tempdis;</span><br><span class="line">                            res.a = c\[i\];</span><br><span class="line">                            res.b = c\[k\];</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    tempdis = dis(c\[i\], c\[j\]);</span><br><span class="line">                    <span class="keyword">if</span> (ans &gt; tempdis) &#123;</span><br><span class="line">                        ans = tempdis;</span><br><span class="line">                        res.a = c\[i\];</span><br><span class="line">                        res.b = c\[j\];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (i != <span class="number">0</span>) &#123;</span><br><span class="line">                tempdis = dis(c\[i\], c\[i - <span class="number">1</span>\]);</span><br><span class="line">                <span class="keyword">if</span> (ans &gt; tempdis) &#123;</span><br><span class="line">                    ans = tempdis;</span><br><span class="line">                    res.a = c\[i\];</span><br><span class="line">                    res.b = c\[i - <span class="number">1</span>\];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    res.result = ans;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(node x)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, x.x);</span><br><span class="line">    <span class="keyword">if</span> (n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" %d"</span>, x.y);</span><br><span class="line">        <span class="keyword">if</span> (n &gt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" %d\\n"</span>, x.z);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"\\n"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"\\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;num, &amp;n);</span><br><span class="line">    node nnode;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;nnode.x);</span><br><span class="line">        <span class="keyword">if</span> (n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;nnode.y);</span><br><span class="line">            <span class="keyword">if</span> (n &gt; <span class="number">2</span>) &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;nnode.z);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        p\[i\] = nnode;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(p, p + num, x_cmp);</span><br><span class="line">    mergeRes mr = merge(<span class="number">0</span>, num);</span><br><span class="line">    node na = p\[mr.a\];</span><br><span class="line">    node nb = p\[mr.b\];</span><br><span class="line">    <span class="keyword">if</span>(na.x&gt;nb.x||(na.x==nb.x&amp;&amp;na.y&gt;nb.y)||(na.x==nb.x&amp;&amp;na.y==nb.y&amp;&amp;na.z&gt;nb.z)) &#123;</span><br><span class="line">        print(nb);</span><br><span class="line">        print(na);</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        print(na);</span><br><span class="line">        print(nb);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
           
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/nearest-point-pair-3-dim/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -1818,19 +1858,6 @@ IPv6 supported!
           
             
             
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/posts/mx-blue-is-the-best/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/posts/mx-blue-is-the-best/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1857,25 +1884,18 @@ IPv6 supported!
       
         
           
-            <p>
-              我垂涎青轴好久了。
-昨天晚上上思修课的时候百无聊赖，于是打开京东开始闲逛。突然看到了 ikbc 在品牌促销，329的 ikbc c87 突然降到了 288，于是……
+            <p>我垂涎青轴好久了。</p>
+<p>昨天晚上上思修课的时候百无聊赖，于是打开京东开始闲逛。突然看到了 ikbc 在品牌促销，329的 ikbc c87 突然降到了 288，于是……</p>
+<p><img src="/images/image-1.png" alt></p>
+<p>真香</p>
+<p><img src="/images/ikbc-c87-mx-blue.jpg" alt></p>
+<p>换上了原厂高度的《Akko 9009 改》键帽，更香了</p>
+<p>到今天，我也算是玩过红茶青三色轴的老玩家了。我跟别人玩机械键盘的顺序完全颠倒——初入红轴觉得毫无手感，于是就买了茶轴；然后觉得茶轴的段落感跟用手去按浸水的饼干一样过于无趣，于是又入了青轴。我觉得，没什么轴是“万金油”轴，每个机械键盘玩家手劲不同、喜好不同，喜欢的轴就是不同的。像我一样手劲比较大，按笔记本键盘都能按得噼里啪啦响的人，个人就不建议买红或者茶了，真的不爽——喜欢噼里啪啦声音的就买青轴，喜欢丝滑手感的就买黑轴；倒是女生或者按键盘喜欢蜻蜓点水般触感的玩家，我会更推荐茶轴或红轴。不过估计会有不少人不信我的邪，毕竟网上基本在一边倒地推荐茶轴和红轴（这两个轴也确实卖得好）……所以，还是自己去实体店尝试一下吧。</p>
+<p>最后放一张证件照：</p>
+<p><img src="/images/ikbc-c87.jpg" alt></p>
+<p>一定要买白色！白色颜值爆表！！黑色又丑又压抑……</p>
 
-真香
-
-换上了原厂高度的《Akko 9009 改》键帽，更香了
-到今天，我也算是玩过红茶青三色轴的老玩家了。我跟
-              ...
-            </p>
-          <!--noindex-->
           
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/mx-blue-is-the-best/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -2020,19 +2040,6 @@ IPv6 supported!
           
             
             
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/posts/moved-blog-server/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/posts/moved-blog-server/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -2059,21 +2066,14 @@ IPv6 supported!
       
         
           
-            <p>
-              昨天正式把博客服务器迁移到了日本 Vultr ，访问速度明显快了许多。
-这两天 Vultr 正在做推广，只要通过我的推广码注册并充值，就送US$50账户余额（相当于10个月的服务器钱）！有要买 VPS 搭梯子&amp;建站（国外服务器建站免备案！）的，可以到
-https://ww
-              ...
-            </p>
-          <!--noindex-->
+            <p>昨天正式把博客服务器迁移到了日本 Vultr ，访问速度明显快了许多。</p>
+<p>这两天 Vultr 正在做推广，只要通过我的推广码注册并充值，就送US$50账户余额（相当于10个月的服务器钱）！有要买 VPS 搭梯子&amp;建站（国外服务器建站免备案！）的，可以到</p>
+<p><strong><a href="https://www.vultr.com/?ref=8049593-4F" target="_blank" rel="noopener">https://www.vultr.com/?ref=8049593-4F</a></strong></p>
+<p>参考一下～最便宜的配置一年US$60，还是比较不错的。</p>
+<p><img src="/images/image.png" alt></p>
+<p>要恰饭的嘛</p>
+
           
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/moved-blog-server/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -2218,19 +2218,6 @@ https://ww
           
             
             
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/posts/i-want-a-fucking-blog-part-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/posts/i-want-a-fucking-blog-part-2/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -2257,20 +2244,24 @@ https://ww
       
         
           
-            <p>
-              话说上回我们已经在购买的VPS服务器上搭好了LNMP环境。今天，让我们完成整个博客系统的搭建吧！首先，我们需要
-安装 WordPress要安装 WordPress，我们需要为 WordPress 创建一个 Nginx 站点（vHost）。Nginx 是一个轻量级的 Web 服务器
-              ...
-            </p>
-          <!--noindex-->
+            <p>话说上回我们已经<a href="https://blog.qhurc.com/i-want-a-fucking-blog-part-1/" target="_blank" rel="noopener">在购买的VPS服务器上搭好了LNMP环境</a>。今天，让我们完成整个博客系统的搭建吧！首先，我们需要</p>
+<h3 id="安装-WordPress"><a href="#安装-WordPress" class="headerlink" title="安装 WordPress"></a>安装 WordPress</h3><p>要安装 WordPress，我们需要为 WordPress 创建一个 Nginx 站点（vHost）。Nginx 是一个轻量级的 Web 服务器。如果您按照我的前序教程（在此重申——<strong>由于本文面向第一次配置环境的小白，所以下面所有复杂过程均应用快速脚本</strong>）一步一步做到现在的话，您可以使用快速脚本自带的管理器配置 vHost：</p>
+<pre><code># lnmp vhost add
+</code></pre><p>在配置 vHost 之前，您需要复习<a href="https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D#%E5%9F%9F%E5%90%8D%E5%B1%82%E6%AC%A1" target="_blank" rel="noopener">顶级域名、一级域名和二级域名的区别</a>。之后，您可以跟着 LNMP.org 提供的<a href="https://lnmp.org/faq/lnmp-vhost-add-howto.html" target="_blank" rel="noopener">教程</a>完成 Nginx 站点的配置。注意，在这一步，你需要创建一个 ftp 用户、一个数据库（建议取名为”wordpress”）和一个数据库用户，这些东西接下来都会用到。</p>
+<p>配置完成后，您需要将工作目录切换至 vHost 站点的根目录（将blog.qhurc.com替换成你自己的域名，下同）：</p>
+<pre><code># cd /home/wwwroot/blog.qhurc.com/
+</code></pre><p>然后，就可以从 WordPress.org 获取 WordPress 安装包啦。执行下列语句下载最新版 WordPress、安装并删除安装包以节省空间：</p>
+<pre><code># wget https://cn.wordpress.org/latest-zh_CN.tar.gz
+# tar -xzv latest-zh_CN.tar.gz
+# rm -rf latest-zh_CN.tar.gz
+</code></pre><p>现在，尝试登录您的网站吧。一切正常的话，您应该已经能看到 WordPress 的欢迎界面了。</p>
+<p><img src="/images/wp-install-step.png" alt></p>
+<p>你将会看到这个界面</p>
+<p>在数据库名称中，输入你创建的数据库名（”wordpress”）。下方的数据库用户名和数据库密码都是你创建 Nginx vHost 时指定的（用户名与数据库名相同）。最后可以不用修改，然后点击 Submit 即可。</p>
+<p>接下来，开启快乐的 WordPress 旅程吧！</p>
+<pre><code>#TODO: SSH
+</code></pre>
           
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/i-want-a-fucking-blog-part-2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -2381,9 +2372,7 @@ https://ww
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2449,76 +2438,7 @@ https://ww
           
 
           
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/AntSYau" title="GitHub &rarr; https://github.com/AntSYau" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:qshi@qhurc.com" title="E-Mail &rarr; mailto:qshi@qhurc.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://www.facebook.com/AntSYau" title="Facebook &rarr; https://www.facebook.com/AntSYau" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>Facebook</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://instagram.com/qhurchill" title="Instagram &rarr; https://instagram.com/qhurchill" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://t.me/qhurchill" title="Telegram &rarr; https://t.me/qhurchill" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
-                </span>
-              
-            </div>
-          
 
-          
-             <div class="cc-license motion-element" itemprop="license">
-              
-              
-                
-              
-              
-              
-              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-             </div>
           
 
           
@@ -2559,9 +2479,15 @@ https://ww
 </div>
 
 
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
 
 
 
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.2</div>
 
 
 
@@ -2579,11 +2505,6 @@ https://ww
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -2649,61 +2570,7 @@ https://ww
   
 
 
-  <script src="/js/schemes/muse.js?v=7.1.2"></script>
-
-
-
-
-  
-
-  
-
-
-  <script src="/js/next-boot.js?v=7.1.2"></script>
-
-
-  
-
-  
-
-  
-
-  
-  
-
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: true,
-    notify: true,
-    appId: '2SNc6DmMpiLkqPzcDaIDsogo-MdYXbMMI',
-    appKey: 'g2apE9KP7QmetbgW7en4r91h',
-    placeholder: '支持文本及 M↓ 评论',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn'
-  });
-</script>
-
-
-
-
-
-  
-
+  <script src="/js/src/schemes/muse.js?v=7.1.2"></script>
 
 
 
@@ -2711,77 +2578,23 @@ https://ww
 
   
 
-  
+
+  <script src="/js/next-boot.js?v=7.1.2"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
   
 
   
-  
-    
-      
-    
-      
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+
   
 
   
-    
-      <script type="text/x-mathjax-config">
+
+
+
   
 
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
-        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
-      }
-    });
-  });
-</script>
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for (i = 0; i < all.length; i += 1) {
-      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
-    }
-  });
-</script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-    
-  
 
 
   
@@ -2797,11 +2610,12 @@ https://ww
   
 
   
-  
-  
-  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
-  <script>pangu.spacingPage();</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
+  
+
+  
+
+  
 
   
 

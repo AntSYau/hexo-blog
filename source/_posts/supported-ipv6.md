@@ -2,11 +2,11 @@
 title: 现时已添加 IPv6 支持
 tags:
   - IPv6
-  - 原创
+  - original
 url: 215.html
 id: 215
 categories:
-  - 法克
+  - ffuck
 date: 2019-05-11 10:33:03
 ---
 
