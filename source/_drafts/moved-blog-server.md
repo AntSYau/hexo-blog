@@ -10,6 +10,7 @@ id: 146
 categories:
   - shitt
 date: 2019-04-24 17:00:16
+archives: /wp-legacy
 ---
 
 昨天正式把博客服务器迁移到了日本 Vultr ，访问速度明显快了许多。

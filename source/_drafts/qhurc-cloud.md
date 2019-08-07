@@ -7,6 +7,7 @@ id: 232
 categories:
   - shitt
 date: 2019-05-17 16:08:36
+archives: /wp-legacy
 ---
 
 位于 https://cloud.qhurc.com 的 ownCloud 服务已经启动，支持 SSL/IPv6 。
